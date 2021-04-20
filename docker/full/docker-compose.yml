@@ -4,7 +4,7 @@ services:
     ports:
       - 27017:27017
   backend:
-    image: mayank31313/ior-backend
+    image: mayank31313/ior-backend:v1
     ports:
       - 8080:8080
     depends_on:
@@ -12,7 +12,7 @@ services:
     environment: 
       - mongo.uri=mongodb://database:27017/?readPreference=primary
   tunnel:
-    image: mayank31313/socket-server
+    image: mayank31313/socket-server:v1
     environment: 
       - mongo.uri=mongodb://database:27017/?readPreference=primary
       - createDefaultDevices=true
@@ -21,12 +21,10 @@ services:
       - 8000:8000
   kms:
     image: kurento/kurento-media-server
-    volumes:
-      - D:/KurentoDocker:/tmp/
     ports:
       - 8888:8888
   video:
-    image: mayank31313/video-server
+    image: mayank31313/video-server:v1
     depends_on:
       - kms
       - database

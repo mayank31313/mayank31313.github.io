@@ -168,16 +168,20 @@
 <div class="viewcode-block" id="IOTClient"><a class="viewcode-back" href="../../ior_research.html#ior_research.IOTClient.IOTClient">[docs]</a><span class="k">class</span> <span class="nc">IOTClient</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Class used to access IOR Server&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">code</span><span class="p">,</span><span class="n">token</span><span class="p">,</span><span class="n">time_delay</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">on_close</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">save_logs</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">onConnect</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;iorcloud.ml&quot;</span><span class="p">,</span> <span class="n">socketServer</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">httpPort</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">,</span><span class="n">tcpPort</span> <span class="o">=</span> <span class="mi">8000</span><span class="p">,</span><span class="n">isTunneled</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">code</span><span class="p">,</span><span class="n">token</span><span class="p">,</span><span class="n">server</span><span class="p">,</span><span class="n">time_delay</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">on_close</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">save_logs</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">onConnect</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">socketServer</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">httpPort</span> <span class="o">=</span> <span class="mi">8080</span><span class="p">,</span><span class="n">tcpPort</span> <span class="o">=</span> <span class="mi">8000</span><span class="p">,</span><span class="n">isTunneled</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">useSSL</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :param code: Current Device code</span>
 <span class="sd">        :param token: Subscription Key</span>
-<span class="sd">        :param to: Receiver Device Code</span>
+<span class="sd">        :param key: AES Encryption key, which is already defined in connections.json frile</span>
 <span class="sd">        :param time_delay: Time Delay for a Heartbeat @Deprecated</span>
 <span class="sd">        :param debug: See all the message in I/O stream on the CLI</span>
 <span class="sd">        :param on_close: a function that has to be called when the connection is closed</span>
-<span class="sd">        :param save_logs: Save Logs of all the messages</span>
-<span class="sd">        :param server: specifies the server default is &#39;iorcloud.ml&#39;</span>
+<span class="sd">        :param save_logs: Save Logs of all the messages, default value is False</span>
+<span class="sd">        :param server: address of the server</span>
+<span class="sd">        :param socket_server: (optional) only use when you have different address of ior-backend and socket-server</span>
+<span class="sd">        :param httpPort: port to register a device on server, default value is 8080</span>
+<span class="sd">        :param tcpPort: port on which TCP Sockets will communicate to, default value is 8000</span>
+<span class="sd">        :param useSSL: (optional) specifies if client should communicate in http or https, default value is False</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
@@ -189,6 +193,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">__port</span> <span class="o">=</span> <span class="n">tcpPort</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__httpPort</span> <span class="o">=</span> <span class="n">httpPort</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__key</span> <span class="o">=</span> <span class="n">key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">useSSL</span> <span class="o">=</span> <span class="n">useSSL</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="n">debug</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__on_close</span> <span class="o">=</span> <span class="n">on_close</span>
@@ -252,7 +257,11 @@
 <span class="sd">        Reconnects IOT Client to server</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="kn">import</span> <span class="nn">requests</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;https://</span><span class="si">%s</span><span class="s1">/tunnel/subscribe?uuid=</span><span class="si">%s</span><span class="s1">&amp;from=</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__server</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__code</span><span class="p">),</span> <span class="n">verify</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">useSSL</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;https://</span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1">/tunnel/subscribe?uuid=</span><span class="si">%s</span><span class="s1">&amp;from=</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__server</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">__httpPort</span> <span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">__token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__code</span><span class="p">),</span> <span class="n">verify</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+                <span class="s1">&#39;http://</span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1">/tunnel/subscribe?uuid=</span><span class="si">%s</span><span class="s1">&amp;from=</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__server</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">__httpPort</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__code</span><span class="p">))</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">404</span><span class="p">:</span>
             <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Request Failed&quot;</span><span class="p">)</span>
@@ -317,6 +326,7 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">aes</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
             <span class="bp">self</span><span class="o">.</span><span class="n">__lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">data</span> <span class="o">+</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\r\n</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">ConnectionAbortedError</span> <span class="k">as</span> <span class="n">cae</span><span class="p">:</span>
@@ -364,7 +374,6 @@
         <span class="n">dataString</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
         <span class="k">if</span><span class="p">(</span><span class="n">dataString</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">None</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DataString: &quot;</span><span class="p">,</span><span class="n">dataString</span><span class="p">)</span>
         <span class="n">dataString</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">aes</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">dataString</span><span class="p">)</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">dataString</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="s2">&quot;ack&quot;</span><span class="p">);</span>
@@ -452,9 +461,9 @@
 <div class="viewcode-block" id="IOTClientWrapper.sendMessage"><a class="viewcode-back" href="../../ior_research.html#ior_research.IOTClient.IOTClientWrapper.sendMessage">[docs]</a>    <span class="k">def</span> <span class="nf">sendMessage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">**</span><span class="n">data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Send message to server</span>
-<span class="sd">        **data: a dict object, acceptable key-values are</span>
-<span class="sd">            message: main message</span>
-<span class="sd">            status: (optional) status of the message</span>
+<span class="sd">        :param **data: a dict object, acceptable key-values are</span>
+<span class="sd">            message: main message \n</span>
+<span class="sd">            status: (optional) status of the message \n</span>
 <span class="sd">            metadata: (optional) metadata of the message, if any</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>

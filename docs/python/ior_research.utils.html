@@ -92,8 +92,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="ior_research.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ior_research.html#ior-research-iorreceiver-module">ior_research.IORReceiver module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ior_research.html#ior-research-iortransmitter-module">ior_research.IORTransmitter module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ior_research.html#module-ior_research.IORReceiver">ior_research.IORReceiver module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ior_research.html#module-ior_research.IORTransmitter">ior_research.IORTransmitter module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ior_research.html#module-ior_research.IOTClient">ior_research.IOTClient module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ior_research.html#module-ior_research.mqtt">ior_research.mqtt module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ior_research.html#module-ior_research">Module contents</a></li>
@@ -183,15 +183,20 @@
 <dt id="ior_research.utils.aes.ControlNetAES">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ior_research.utils.aes.</span></code><code class="sig-name descname"><span class="pre">ControlNetAES</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/utils/aes.html#ControlNetAES"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.utils.aes.ControlNetAES" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class responsible for encrypting and decrypting, the message</p>
 <dl class="py method">
 <dt id="ior_research.utils.aes.ControlNetAES.decrypt">
 <code class="sig-name descname"><span class="pre">decrypt</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/utils/aes.html#ControlNetAES.decrypt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.utils.aes.ControlNetAES.decrypt" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Decrypts encrypted base64 text and returns raw string
+:param text: encrypted AES base 64 encoded string</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="ior_research.utils.aes.ControlNetAES.encrypt">
 <code class="sig-name descname"><span class="pre">encrypt</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/utils/aes.html#ControlNetAES.encrypt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.utils.aes.ControlNetAES.encrypt" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Encrypts text and returns base64 encoded form of cipher text encoded using AES Encryption
+:param text: input raw string</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -261,6 +266,7 @@ from the args and kwargs arguments, respectively.</p>
 <dt id="ior_research.utils.video.VideoTransmitter">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ior_research.utils.video.</span></code><code class="sig-name descname"><span class="pre">VideoTransmitter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">driver</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/utils/video.html#VideoTransmitter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.utils.video.VideoTransmitter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class responsible for managing the Browser and Video Stream, from client side</p>
 <dl class="py method">
 <dt id="ior_research.utils.video.VideoTransmitter.checkBrowserAlive">
 <code class="sig-name descname"><span class="pre">checkBrowserAlive</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/utils/video.html#VideoTransmitter.checkBrowserAlive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.utils.video.VideoTransmitter.checkBrowserAlive" title="Permalink to this definition">¶</a></dt>
@@ -280,54 +286,16 @@ from the args and kwargs arguments, respectively.</p>
 
 <dl class="py function">
 <dt id="ior_research.utils.video.createVideoTransmitter">
-<code class="sig-prename descclassname"><span class="pre">ior_research.utils.video.</span></code><code class="sig-name descname"><span class="pre">createVideoTransmitter</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/utils/video.html#createVideoTransmitter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.utils.video.createVideoTransmitter" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">ior_research.utils.video.</span></code><code class="sig-name descname"><span class="pre">createVideoTransmitter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">audio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">video</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/utils/video.html#createVideoTransmitter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.utils.video.createVideoTransmitter" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-ior_research.utils">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ior_research.utils" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
-<dt id="ior_research.utils.countPrimitiveRoots">
-<code class="sig-prename descclassname"><span class="pre">ior_research.utils.</span></code><code class="sig-name descname"><span class="pre">countPrimitiveRoots</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/utils.html#countPrimitiveRoots"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.utils.countPrimitiveRoots" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="ior_research.utils.generateDiffieHellmanKeys">
-<code class="sig-prename descclassname"><span class="pre">ior_research.utils.</span></code><code class="sig-name descname"><span class="pre">generateDiffieHellmanKeys</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/utils.html#generateDiffieHellmanKeys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.utils.generateDiffieHellmanKeys" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="ior_research.utils.generate_prime_candidate">
-<code class="sig-prename descclassname"><span class="pre">ior_research.utils.</span></code><code class="sig-name descname"><span class="pre">generate_prime_candidate</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/utils.html#generate_prime_candidate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.utils.generate_prime_candidate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generate an odd integer randomly
-Args:</p>
-<blockquote>
-<div><p>length – int – the length of the number to generate, in bits</p>
-</div></blockquote>
-<p>return a integer</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ior_research.utils.generate_prime_number">
-<code class="sig-prename descclassname"><span class="pre">ior_research.utils.</span></code><code class="sig-name descname"><span class="pre">generate_prime_number</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/utils.html#generate_prime_number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.utils.generate_prime_number" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
 <dt id="ior_research.utils.getrandbits">
 <code class="sig-prename descclassname"><span class="pre">ior_research.utils.</span></code><code class="sig-name descname"><span class="pre">getrandbits</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">x.</span>&#160; <span class="pre">Generates</span> <span class="pre">an</span> <span class="pre">int</span> <span class="pre">with</span> <span class="pre">k</span> <span class="pre">random</span> <span class="pre">bits.</span><a class="headerlink" href="#ior_research.utils.getrandbits" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
-<dl class="py function">
-<dt id="ior_research.utils.is_prime">
-<code class="sig-prename descclassname"><span class="pre">ior_research.utils.</span></code><code class="sig-name descname"><span class="pre">is_prime</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/utils.html#is_prime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.utils.is_prime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Test if a number is prime
-Args:</p>
-<blockquote>
-<div><p>n – int – the number to test
-k – int – the number of tests to do</p>
-</div></blockquote>
-<p>return True if n is prime</p>
-</dd></dl>
 
 <dl class="py function">
 <dt id="ior_research.utils.loadConfig">

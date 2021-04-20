@@ -168,85 +168,85 @@
         <span class="kn">import</span> <span class="nn">yaml</span>
         <span class="k">return</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="is_prime"><a class="viewcode-back" href="../../ior_research.utils.html#ior_research.utils.is_prime">[docs]</a><span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">128</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Test if a number is prime</span>
-<span class="sd">        Args:</span>
-<span class="sd">            n -- int -- the number to test</span>
-<span class="sd">            k -- int -- the number of tests to do</span>
-<span class="sd">        return True if n is prime</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Test if n is not even.</span>
-    <span class="c1"># But care, 2 is prime !</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">True</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">False</span>
-    <span class="c1"># find r and s</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="k">while</span> <span class="n">r</span> <span class="o">&amp;</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">s</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">r</span> <span class="o">//=</span> <span class="mi">2</span>
-    <span class="c1"># do k tests</span>
-    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
-        <span class="n">a</span> <span class="o">=</span> <span class="n">randrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
-            <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">s</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">x</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="kc">False</span>
-                <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="k">return</span> <span class="kc">False</span>
-    <span class="k">return</span> <span class="kc">True</span></div>
-<div class="viewcode-block" id="generate_prime_candidate"><a class="viewcode-back" href="../../ior_research.utils.html#ior_research.utils.generate_prime_candidate">[docs]</a><span class="k">def</span> <span class="nf">generate_prime_candidate</span><span class="p">(</span><span class="n">length</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Generate an odd integer randomly</span>
-<span class="sd">        Args:</span>
-<span class="sd">            length -- int -- the length of the number to generate, in bits</span>
-<span class="sd">        return a integer</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># generate random bits</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">getrandbits</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
-    <span class="c1"># apply a mask to set MSB and LSB to 1</span>
-    <span class="n">p</span> <span class="o">|=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">p</span></div>
-
-<div class="viewcode-block" id="generate_prime_number"><a class="viewcode-back" href="../../ior_research.utils.html#ior_research.utils.generate_prime_number">[docs]</a><span class="k">def</span> <span class="nf">generate_prime_number</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">1024</span><span class="p">):</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="mi">4</span>
-    <span class="c1"># keep generating while the primality test fail</span>
-    <span class="k">while</span> <span class="ow">not</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">128</span><span class="p">):</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="n">generate_prime_candidate</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">p</span></div>
-
-<div class="viewcode-block" id="countPrimitiveRoots"><a class="viewcode-back" href="../../ior_research.utils.html#ior_research.utils.countPrimitiveRoots">[docs]</a><span class="k">def</span> <span class="nf">countPrimitiveRoots</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">gcd</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">i</span>
-
-    <span class="k">return</span> <span class="n">result</span></div>
-
-<div class="viewcode-block" id="generateDiffieHellmanKeys"><a class="viewcode-back" href="../../ior_research.utils.html#ior_research.utils.generateDiffieHellmanKeys">[docs]</a><span class="k">def</span> <span class="nf">generateDiffieHellmanKeys</span><span class="p">():</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">generate_prime_number</span><span class="p">()</span>
-    <span class="n">public</span> <span class="o">=</span> <span class="mi">5</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
-
-    <span class="n">a_public</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">public</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
-    <span class="n">b_public</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">public</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="n">a_public</span><span class="p">,</span> <span class="n">b_public</span><span class="p">)</span>
-
-    <span class="n">key1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">b_public</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
-    <span class="n">key2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">a_public</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">key1</span> <span class="o">==</span> <span class="n">key2</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">key1</span><span class="p">,</span> <span class="n">key2</span><span class="p">)</span></div>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">generateDiffieHellmanKeys</span><span class="p">()</span>
+<span class="c1"># def is_prime(n, k=128):</span>
+<span class="c1">#     &quot;&quot;&quot; Test if a number is prime</span>
+<span class="c1">#         Args:</span>
+<span class="c1">#             n -- int -- the number to test</span>
+<span class="c1">#             k -- int -- the number of tests to do</span>
+<span class="c1">#         return True if n is prime</span>
+<span class="c1">#     &quot;&quot;&quot;</span>
+<span class="c1">#     # Test if n is not even.</span>
+<span class="c1">#     # But care, 2 is prime !</span>
+<span class="c1">#     if n == 2 or n == 3:</span>
+<span class="c1">#         return True</span>
+<span class="c1">#     if n &lt;= 1 or n % 2 == 0:</span>
+<span class="c1">#         return False</span>
+<span class="c1">#     # find r and s</span>
+<span class="c1">#     s = 0</span>
+<span class="c1">#     r = n - 1</span>
+<span class="c1">#     while r &amp; 1 == 0:</span>
+<span class="c1">#         s += 1</span>
+<span class="c1">#         r //= 2</span>
+<span class="c1">#     # do k tests</span>
+<span class="c1">#     for _ in range(k):</span>
+<span class="c1">#         a = randrange(2, n - 1)</span>
+<span class="c1">#         x = pow(a, r, n)</span>
+<span class="c1">#         if x != 1 and x != n - 1:</span>
+<span class="c1">#             j = 1</span>
+<span class="c1">#             while j &lt; s and x != n - 1:</span>
+<span class="c1">#                 x = pow(x, 2, n)</span>
+<span class="c1">#                 if x == 1:</span>
+<span class="c1">#                     return False</span>
+<span class="c1">#                 j += 1</span>
+<span class="c1">#             if x != n - 1:</span>
+<span class="c1">#                 return False</span>
+<span class="c1">#     return True</span>
+<span class="c1"># def generate_prime_candidate(length):</span>
+<span class="c1">#     &quot;&quot;&quot; Generate an odd integer randomly</span>
+<span class="c1">#         Args:</span>
+<span class="c1">#             length -- int -- the length of the number to generate, in bits</span>
+<span class="c1">#         return a integer</span>
+<span class="c1">#     &quot;&quot;&quot;</span>
+<span class="c1">#     # generate random bits</span>
+<span class="c1">#     p = getrandbits(length)</span>
+<span class="c1">#     # apply a mask to set MSB and LSB to 1</span>
+<span class="c1">#     p |= (1 &lt;&lt; length - 1) | 1</span>
+<span class="c1">#     return p</span>
+<span class="c1">#</span>
+<span class="c1"># def generate_prime_number(length=1024):</span>
+<span class="c1">#     p = 4</span>
+<span class="c1">#     # keep generating while the primality test fail</span>
+<span class="c1">#     while not is_prime(p, 128):</span>
+<span class="c1">#         p = generate_prime_candidate(length)</span>
+<span class="c1">#     return p</span>
+<span class="c1">#</span>
+<span class="c1"># def countPrimitiveRoots(p):</span>
+<span class="c1">#     result = 1</span>
+<span class="c1">#     for i in range(2, p, 1):</span>
+<span class="c1">#         n = math.gcd(i, p)</span>
+<span class="c1">#         if (n == 1):</span>
+<span class="c1">#             result = i</span>
+<span class="c1">#</span>
+<span class="c1">#     return result</span>
+<span class="c1">#</span>
+<span class="c1"># def generateDiffieHellmanKeys():</span>
+<span class="c1">#     n = generate_prime_number()</span>
+<span class="c1">#     public = 5</span>
+<span class="c1">#     a = random.randint(1,20)</span>
+<span class="c1">#     b = random.randint(1,20)</span>
+<span class="c1">#</span>
+<span class="c1">#     a_public = int(math.pow(public, a) % n)</span>
+<span class="c1">#     b_public = int(math.pow(public,b) % n)</span>
+<span class="c1">#</span>
+<span class="c1">#     print(a_public, b_public)</span>
+<span class="c1">#</span>
+<span class="c1">#     key1 = int(math.pow(b_public, a) % n)</span>
+<span class="c1">#     key2 = int(math.pow(a_public, b) % n)</span>
+<span class="c1">#     print(key1 == key2)</span>
+<span class="c1">#     print(key1, key2)</span>
+<span class="c1">#</span>
+<span class="c1"># if __name__ == &quot;__main__&quot;:</span>
+<span class="c1">#     generateDiffieHellmanKeys()</span>
 </pre></div>
 
            </div>

@@ -1,10 +1,8 @@
 services:
   database:
     image: mongo
-    ports:
-      - 27017:27017
   tunnel:
-    image: mayank31313/socket-server
+    image: mayank31313/socket-server:v1
     environment: 
       - mongo.uri=mongodb://database:27017/?readPreference=primary
       - createDefaultDevices=true

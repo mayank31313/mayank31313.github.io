@@ -196,10 +196,8 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        OnReceive method invokes whenever a client message is received</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">socketMessage</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">payload</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
-        <span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">socketMessage</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">onReceive</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">onReceive</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">onReceive</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Communicator.setOnConnect"><a class="viewcode-back" href="../../ior_research.html#ior_research.mqtt.Communicator.setOnConnect">[docs]</a>    <span class="k">def</span> <span class="nf">setOnConnect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">onConnect</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -216,17 +214,24 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">onReceive</span> <span class="o">=</span> <span class="n">onReceive</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">on_message</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__onReceive</span></div>
 
+<div class="viewcode-block" id="Communicator.sendObject"><a class="viewcode-back" href="../../ior_research.html#ior_research.mqtt.Communicator.sendObject">[docs]</a>    <span class="k">def</span> <span class="nf">sendObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        publish message to MQTT Broker</span>
+<span class="sd">        sm: SocketMessage object</span>
+<span class="sd">        to: optional parameter, specifies a target client</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">SocketMessage</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="n">sm</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="n">to</span><span class="p">)</span></div>
 <div class="viewcode-block" id="Communicator.sendMessage"><a class="viewcode-back" href="../../ior_research.html#ior_research.mqtt.Communicator.sendMessage">[docs]</a>    <span class="k">def</span> <span class="nf">sendMessage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">sm</span><span class="p">,</span><span class="n">to</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        publish message to MQTT Broker</span>
-<span class="sd">        sm: SockerMessage object</span>
+<span class="sd">        sm: Message String</span>
 <span class="sd">        to: optional parameter, specifies a target client</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">token</span>
         <span class="k">if</span><span class="p">(</span><span class="n">to</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">):</span>
             <span class="n">path</span> <span class="o">+=</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">to</span>
-        <span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">sm</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">SocketMessage</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span></div></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">sm</span><span class="p">)</span></div></div>
 
 <div class="viewcode-block" id="on_connect"><a class="viewcode-back" href="../../ior_research.html#ior_research.mqtt.on_connect">[docs]</a><span class="k">def</span> <span class="nf">on_connect</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">userdata</span><span class="p">,</span> <span class="n">flags</span><span class="p">,</span> <span class="n">rc</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connected with result code &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">rc</span><span class="p">))</span></div>
@@ -273,14 +278,12 @@
     <span class="c1"># Let the clients initialise for 2 sec</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
-    <span class="c1"># Sends message specific to client with code2</span>
-    <span class="n">client1</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="n">SocketMessage</span><span class="p">(</span><span class="s2">&quot;From 1&quot;</span><span class="p">),</span> <span class="n">to</span><span class="o">=</span><span class="n">code2</span><span class="p">)</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="c1"># Sends message specific to client with code1</span>
-    <span class="n">client2</span><span class="o">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="n">SocketMessage</span><span class="p">(</span><span class="s2">&quot;From 2&quot;</span><span class="p">),</span> <span class="n">to</span><span class="o">=</span><span class="n">code1</span><span class="p">)</span>
-
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="c1"># Sends message specific to client with code2</span>
+        <span class="n">client1</span><span class="o">.</span><span class="n">sendObject</span><span class="p">(</span><span class="n">SocketMessage</span><span class="p">(</span><span class="s2">&quot;From 1&quot;</span><span class="p">),</span> <span class="n">to</span><span class="o">=</span><span class="n">code2</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># Sends message specific to client with code1</span>
+        <span class="n">client2</span><span class="o">.</span><span class="n">sendObject</span><span class="p">(</span><span class="n">SocketMessage</span><span class="p">(</span><span class="s2">&quot;From 2&quot;</span><span class="p">),</span> <span class="n">to</span><span class="o">=</span><span class="n">code1</span><span class="p">)</span>
 
 </pre></div>
 
