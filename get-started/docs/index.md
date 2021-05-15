@@ -18,7 +18,7 @@ Control Net Architecture is divided in 3 Projects
 ### Server
 
 #### Setup Docker
-Docker is a open platform to run apps in a container and seperate those apps from the infrastructure. You can install docker as per your platform needs from [here](https://docs.docker.com/engine/install/)
+Docker is a open platform to run apps in a container and seperate those apps from the infrastructure. You can install docker as per your platform needs from [here](https://docs.docker.com/engine/install/), we will also need Docker Compose which can be installed from this [page](https://docs.docker.com/compose/install/).
 
 #### Download Docker Compose File
 
