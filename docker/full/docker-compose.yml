@@ -1,5 +1,9 @@
 version: '3'
 services:
+  haproxy:
+    image: mayank31313/ior-haproxy
+    ports:
+      - 80:80
   database:
     image: mongo
     ports:
