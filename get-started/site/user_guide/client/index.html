@@ -8,10 +8,10 @@
     
     
     
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Home - Control Net</title>
+    <title>Client - Control Net</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -19,9 +19,9 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
     <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
-    <link href="css/bootstrap-custom.min.css" rel="stylesheet">
-    <link href="css/base.min.css" rel="stylesheet">
-    <link href="css/cinder.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
 
     
         
@@ -40,7 +40,7 @@
      
 </head>
 
-<body class="homepage" >
+<body>
 
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
@@ -59,7 +59,7 @@
             <!-- Main title -->
 
             
-              <a class="navbar-brand" href=".">Control Net</a>
+              <a class="navbar-brand" href="../..">Control Net</a>
             
         </div>
 
@@ -69,19 +69,19 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="active">
-                        <a href=".">Home</a>
+                    <li >
+                        <a href="../..">Home</a>
                     </li>
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Guide <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li >
-    <a href="user_guide/client/">Client</a>
+<li class="active">
+    <a href="./">Client</a>
 </li>
 
                         
@@ -97,13 +97,13 @@
                             <i class="fas fa-search"></i> Search
                         </a>
                     </li>
-                    <li class="disabled">
-                        <a rel="prev" >
+                    <li >
+                        <a rel="prev" href="../..">
                             <i class="fas fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li >
-                        <a rel="next" href="user_guide/client/">
+                    <li class="disabled">
+                        <a rel="next" >
                             Next <i class="fas fa-arrow-right"></i>
                         </a>
                     </li>
@@ -117,78 +117,35 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#welcome-to-control-net">Welcome to Control Net</a></li>
-            <li class="second-level"><a href="#introduction">Introduction</a></li>
+        <li class="first-level active"><a href="#client-configuration">Client Configuration</a></li>
+            <li class="second-level"><a href="#to-be-known-words">To be known words</a></li>
                 
-            <li class="second-level"><a href="#getting-started">Getting Started</a></li>
-                
-                <li class="third-level"><a href="#server">Server</a></li>
-                <li class="third-level"><a href="#client-ior-python">Client (IOR-Python)</a></li>
-            <li class="second-level"><a href="#quick-demo">Quick Demo</a></li>
+                <li class="third-level"><a href="#device">Device</a></li>
+                <li class="third-level"><a href="#connection">Connection</a></li>
+            <li class="second-level"><a href="#connections-config">Connections Config</a></li>
                 
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="welcome-to-control-net">Welcome to Control Net</h1>
-<p><a href="https://controlnet.ml">Official Portfolio</a>.</p>
-<h2 id="introduction">Introduction</h2>
-<p>Welcome, I am excited to present 
-ControlNet is a communication platform for devices like Raspberry Pi's that support python programming language. The purpose to build this platform is to connect various devices over a network(i.e private &amp; public network).</p>
-<p>Control Net Architecture is divided in 3 Projects</p>
-<ul>
-<li><a href="https://github.com/mayank31313/IOR-Project">IOR Control Net Tower</a></li>
-<li><a href="https://github.com/mayank31313/SocketServer">IOR Socket Server</a></li>
-<li><a href="https://github.com/mayank31313/IOR-VideoStreaming">IOR Video Streamer</a></li>
-</ul>
-<h2 id="getting-started">Getting Started</h2>
-<h3 id="server">Server</h3>
-<h4 id="setup-docker">Setup Docker</h4>
-<p>Docker is a open platform to run apps in a container and seperate those apps from the infrastructure. You can install docker as per your platform needs from <a href="https://docs.docker.com/engine/install/">here</a>, we will also need Docker Compose which can be installed from this <a href="https://docs.docker.com/compose/install/">page</a>.</p>
-<h4 id="download-docker-compose-file">Download Docker Compose File</h4>
-<pre><code>cd ~
-mkdir controlnet-docker
-cd controlnet-docker
-wget https://mayank31313.github.io/docker/full/docker-compose.yml
+<h1 id="client-configuration">Client Configuration</h1>
+<h3 id="to-be-known-words">To be known words</h3>
+<h4 id="device">Device</h4>
+<p>A unique ior-client process, that runs on the client device. These devices are seperated by unique device code in the given user context.</p>
+<h4 id="connection">Connection</h4>
+<p>A connection is connectivity bridge between 2 clients, managed by the IOR-SocketServer. Before the target devices connect to server, a connection has be specified on the server side to get it to work.</p>
+<h3 id="connections-config">Connections Config</h3>
+<p>After cloning this <a href="https://github.com/mayank31313/ior-python">repository</a>, the directory structure is a follows</p>
+<pre><code>./ior-python
+    /config
+        /from.json
+        /from2.json
+        /to.json
+        /to2.json
+        /iorConfigs.config
 </code></pre>
-<p>The above command will download docker-compose file in the current directory</p>
-<h4 id="run-servers-in-docker">Run servers in Docker</h4>
-<p>To run containers just run the below command in the docker-compose file directory, it will pull necessary images and start docker containers.</p>
-<pre><code>docker-compose up
-</code></pre>
-<p>To stop the containers, run below command</p>
-<pre><code>docker-compose down
-</code></pre>
-<h3 id="client-ior-python">Client (IOR-Python)</h3>
-<p>The client code is available on this <a href="https://github.com/mayank31313/ior-python">github repository</a></p>
-<h4 id="setup-client">Setup Client</h4>
-<p>For this example no external configuration is needed, all the settings are predefined. The below example will only give a use case on the controlnet platform.</p>
-<pre><code>git clone https://github.com/mayank31313/ior-python
-cd ior-python/examples
-python3 LatencyCheck.py ../config/from.json ../config/to.json
-</code></pre>
-<h4 id="usage">Usage</h4>
-<pre><code>config = {
-    "server": "localhost",
-    "httpPort": 5001,
-    "socketServer": "localhost",
-    "tcpPort": 8000,
-    #"useSSL": True    # Optional
-}
-</code></pre>
-<h4 id="create-instance-of-iot-client">Create Instance of IOT Client</h4>
-<pre><code>from ior_research.IOTClient import IOTClientWrapper
-iot = IOTClientWrpper(token=token, config = config) #Creating object for IOT Client
-</code></pre>
-<h4 id="setting-up-receive-function-to-do-some-operation-when-a-response-is-received">Setting up Receive Function to do some Operation when a response is received.</h4>
-<pre><code>iot.set_on_receive(lambda x: print(x))
-</code></pre>
-<h4 id="last-but-not-the-least-start-the-iotclient">Last but not the least start the IOTClient</h4>
-<pre><code>iot.start()
-iot.join()
-</code></pre>
-<h2 id="quick-demo">Quick Demo</h2>
-<p><a href="https://youtu.be/RZJzZkTJpJQ"><img src="https://img.youtube.com/vi/RZJzZkTJpJQ/maxresdefault.jpg" width="50%"></a></p></div>
+<p>These are the client connection config that are required by every client that connects to the IOR-SocketServer, and are very important. These files contains server and client related configs. These files can also be downloaded through Controlnet Frontend from connections section.</p>
+<p>But by default, these configuration files can be used to Quick Start the client application. Other than that iotConfig.config file is not the connection configuration, but has some external configuration that can be used by IOR Client.</p></div>
         
         
     </div>
@@ -208,7 +165,7 @@ iot.join()
       </footer>
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
 
     
     <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
@@ -216,10 +173,10 @@ iot.join()
     <script>hljs.initHighlightingOnLoad();</script>
     
 
-    <script>var base_url = "."</script>
+    <script>var base_url = "../.."</script>
     
-    <script src="js/base.js"></script>
-    <script src="search/main.js"></script>
+    <script src="../../js/base.js"></script>
+    <script src="../../search/main.js"></script>
 
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -290,8 +247,3 @@ iot.join()
     </body>
 
 </html>
-
-<!--
-MkDocs version : 1.0.4
-Build Date UTC : 2021-05-16 14:11:24
--->

@@ -6,3 +6,5 @@ theme:
 
 nav:
   - Home: index.md
+  - User Guide:
+    - Client: user_guide/client.md
