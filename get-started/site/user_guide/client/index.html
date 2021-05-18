@@ -122,7 +122,11 @@
                 
                 <li class="third-level"><a href="#device">Device</a></li>
                 <li class="third-level"><a href="#connection">Connection</a></li>
-            <li class="second-level"><a href="#connections-config">Connections Config</a></li>
+            <li class="second-level"><a href="#connection-config">Connection Config</a></li>
+                
+            <li class="second-level"><a href="#lets-go">Lets go</a></li>
+                
+            <li class="second-level"><a href="#whats-next">Whats Next</a></li>
                 
     </ul>
 </div></div>
@@ -134,7 +138,7 @@
 <p>A unique ior-client process, that runs on the client device. These devices are seperated by unique device code in the given user context.</p>
 <h4 id="connection">Connection</h4>
 <p>A connection is connectivity bridge between 2 clients, managed by the IOR-SocketServer. Before the target devices connect to server, a connection has be specified on the server side to get it to work.</p>
-<h3 id="connections-config">Connections Config</h3>
+<h3 id="connection-config">Connection Config</h3>
 <p>After cloning this <a href="https://github.com/mayank31313/ior-python">repository</a>, the directory structure is a follows</p>
 <pre><code>./ior-python
     /config
@@ -145,7 +149,35 @@
         /iorConfigs.config
 </code></pre>
 <p>These are the client connection config that are required by every client that connects to the IOR-SocketServer, and are very important. These files contains server and client related configs. These files can also be downloaded through Controlnet Frontend from connections section.</p>
-<p>But by default, these configuration files can be used to Quick Start the client application. Other than that iotConfig.config file is not the connection configuration, but has some external configuration that can be used by IOR Client.</p></div>
+<p>But by default, these configuration files can be used to Quick Start the client application. Other than that iotConfig.config file is not the connection configuration, but has some external configuration that can be used by IOR Client.</p>
+<h3 id="lets-go">Lets go</h3>
+<p>In this section we will create a and understand, how the connectivity and connection works in a device.</p>
+<p>When a socket server instance is created, it also creates a default user at the server side along with some devices and connections listed below:</p>
+<ul>
+<li>Device 1 - Master 1 (type = Raspberry Pi)</li>
+<li>Device 2 - Slave 1 (type = Raspberry Pi)</li>
+<li>Device 3 - Master 2 (type = Raspberry Pi)</li>
+<li>Device 4 - Slave 2 (type = Raspberry Pi)</li>
+</ul>
+<p>Master 1,2 and Slave 1,2 are just device name given, it doesn't mean that the only master can control the slave. The communication is bidirectional.</p>
+<p><img alt="Device" src="../../img/devices.png" /></p>
+<p>After creating a device, the devices will not pair up to each other automatically, we will need to specify a connection between those. See below image. There are 2 connections already created</p>
+<ul>
+<li>Connection 1: Master 1 &lt;--&gt; Slave 1</li>
+<li>Connection 2: Master 2 &lt;--&gt; Slave 2</li>
+</ul>
+<p><img alt="Connections" src="../../img/connections.png" /></p>
+<p>After creating a connection, users can download the configuration file for each connecting device from the download button. These are required and important file, as they store client configurations.</p>
+<p>In the <a href="#connection-config">above section</a>, we specified json files, these are the same connection file which store client configuration.</p>
+<ul>
+<li>from.json = Master 1</li>
+<li>to.json = Slave 1</li>
+<li>from.json = Master 2</li>
+<li>to.json = Slave 2</li>
+</ul>
+<p>These json files also help socket-server to authenticate. </p>
+<h2 id="whats-next">Whats Next</h2>
+<p>There is more content to add.</p></div>
         
         
     </div>

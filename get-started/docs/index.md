@@ -5,7 +5,7 @@
 ## Introduction
 
 Welcome, I am excited to present 
-ControlNet is a communication platform for devices like Raspberry Pi's that support python programming language. The purpose to build this platform is to connect various devices over a network(i.e private & public network).
+ControlNet is a communication platform for devices like Raspberry Pi's that support python programming language. The purpose to build this platform is to connect various devices over a network(i.e private & public network). Each has a unique use-case.
 
 Control Net Architecture is divided in 3 Projects
 
