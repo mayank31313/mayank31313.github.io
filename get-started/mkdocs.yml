@@ -8,3 +8,4 @@ nav:
   - Home: index.md
   - User Guide:
     - Client: user_guide/client.md
+    - Server: user_guide/server.md
