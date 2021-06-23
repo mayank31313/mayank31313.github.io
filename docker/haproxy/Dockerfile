@@ -6,5 +6,9 @@ RUN apt-get update \
 
 RUN mkdir /run/haproxy
 COPY haproxy.cfg /etc/haproxy/haproxy.cfg
+COPY cert.pem /etc/haproxy/
 
-CMD service rsyslog start && haproxy -f /etc/haproxy/haproxy.cfg && tail -F /var/log/haproxy.log 
+EXPOSE 80
+EXPOSE 443
+
+CMD service rsyslog start && haproxy -f /etc/haproxy/haproxy.cfg && tail -F /var/log/haproxy.log
