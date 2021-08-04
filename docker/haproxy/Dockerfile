@@ -1,14 +1,18 @@
 FROM ubuntu
 
 RUN apt-get update \
-    && apt-get install -y haproxy rsyslog \
+    && apt-get install -y haproxy rsyslog openssl\
     && rm -rf /var/lib/apt/lists/*
 
+
 RUN mkdir /run/haproxy
-COPY haproxy.cfg /etc/haproxy/haproxy.cfg
-COPY cert.pem /etc/haproxy/
+COPY haproxy.cfg /etc/haproxy/haproxy-backup.cfg
+COPY cert.pem /etc/haproxy/cert.pem
+COPY entrypoint.sh entrypoint.sh
+
+ENV ip 127.0.0.1
 
 EXPOSE 80
 EXPOSE 443
 
-CMD service rsyslog start && haproxy -f /etc/haproxy/haproxy.cfg && tail -F /var/log/haproxy.log
+ENTRYPOINT [ "bash", "entrypoint.sh" ]

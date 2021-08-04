@@ -8,10 +8,10 @@
     
     
     
-    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <link rel="shortcut icon" href="../img/favicon.ico">
 
     
-    <title>Server - Control Net</title>
+    <title>Client - Control Net</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -19,9 +19,9 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
     <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
-    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-    <link href="../../css/base.min.css" rel="stylesheet">
-    <link href="../../css/cinder.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../css/base.min.css" rel="stylesheet">
+    <link href="../css/cinder.min.css" rel="stylesheet">
 
     
         
@@ -59,7 +59,7 @@
             <!-- Main title -->
 
             
-              <a class="navbar-brand" href="../..">Control Net</a>
+              <a class="navbar-brand" href="../index.html">Control Net</a>
             
         </div>
 
@@ -70,7 +70,7 @@
                 
                 
                     <li >
-                        <a href="../..">Home</a>
+                        <a href="../index.html">Home</a>
                     </li>
                 
                 
@@ -80,14 +80,14 @@
                         <ul class="dropdown-menu">
                         
                             
-<li >
-    <a href="../client/">Client</a>
+<li class="active">
+    <a href="client.html">Client</a>
 </li>
 
                         
                             
-<li class="active">
-    <a href="./">Server</a>
+<li >
+    <a href="server.html">Server</a>
 </li>
 
                         
@@ -104,12 +104,12 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../client/">
+                        <a rel="prev" href="../index.html">
                             <i class="fas fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li class="disabled">
-                        <a rel="next" >
+                    <li >
+                        <a rel="next" href="server.html">
                             Next <i class="fas fa-arrow-right"></i>
                         </a>
                     </li>
@@ -123,30 +123,67 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#server-setup-and-configuration">Server Setup and Configuration</a></li>
-            <li class="second-level"><a href="#the-application-servers">The Application Servers</a></li>
+        <li class="first-level active"><a href="#client-configuration">Client Configuration</a></li>
+            <li class="second-level"><a href="#to-be-known-words">To be known words</a></li>
                 
-                <li class="third-level"><a href="#control-net-tower">Control Net Tower</a></li>
-                <li class="third-level"><a href="#socket-server-tunnel-server">Socket Server (Tunnel Server)</a></li>
-                <li class="third-level"><a href="#video-streamer">Video Streamer</a></li>
+                <li class="third-level"><a href="#device">Device</a></li>
+                <li class="third-level"><a href="#connection">Connection</a></li>
+            <li class="second-level"><a href="#connection-config">Connection Config</a></li>
+                
+            <li class="second-level"><a href="#lets-go">Lets go</a></li>
+                
+            <li class="second-level"><a href="#whats-next">Whats Next</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="server-setup-and-configuration">Server Setup and Configuration</h1>
-<p>As discuss on <a href="/">this page</a>, control net depends upon 3 Application. On this page we will discuss those 3 Apps in detail.</p>
-<h2 id="the-application-servers">The Application Servers</h2>
-<h3 id="control-net-tower">Control Net Tower</h3>
-<p>The Server handles all the REST API requests which deals with User, Devices and Connections. The Authentication used is JWT Token Authentication. Using the server api, we can manage user, client and connections.</p>
-<p>Click here for <a href="https://hub.docker.com/repository/docker/mayank31313/ior-backend">Docker Image</a></p>
-<h3 id="socket-server-tunnel-server">Socket Server (Tunnel Server)</h3>
-<p>This server uses TCP Sockets to communicate. The server connects client across each other. The server is also responsible for handling the socket message. It uses AES Encryption with the Connection Key, but is partially encrypted means the messages are decrypted at the server side. But this limitation will be removed in the future builds.</p>
-<p>Click here for <a href="https://hub.docker.com/repository/docker/mayank31313/socket-server">Docker Image</a></p>
-<h3 id="video-streamer">Video Streamer</h3>
-<p>This server is used create a Video Live Stream from a device to end user, it uses WebRTC behind the scenes. Connecting to the server requires JWT Token which can be created through Control Net Tower and the stream can be watch on the <a href="https://mayank31313.github.io/controlnet/index.html#/">Control Net Frontend</a> -&gt; Sign In -&gt; Video Streaming (On Left Drawer), for current build you can stream only 1 Device at a time.</p>
-<p>Click here for <a href="https://hub.docker.com/repository/docker/mayank31313/video-server">Docker Image</a></p>
-<h4 id="additional-features">Additional Features</h4>
-<p>The Streamer can also be used for Computer Vision and Machine Learning can be also implemented. Users can implement CNN architecture as per the use case.</p></div>
+<h1 id="client-configuration">Client Configuration</h1>
+<h3 id="to-be-known-words">To be known words</h3>
+<h4 id="device">Device</h4>
+<p>A unique ior-client process, that runs on the client device. These devices are seperated by unique device code in the given user context.</p>
+<h4 id="connection">Connection</h4>
+<p>A connection is connectivity bridge between 2 clients, managed by the IOR-SocketServer. Before the target devices connect to server, a connection has be specified on the server side to get it to work.</p>
+<h3 id="connection-config">Connection Config</h3>
+<p>After cloning this <a href="https://github.com/mayank31313/ior-python">repository</a>, the directory structure is a follows</p>
+<pre><code>./ior-python
+    /config
+        /from.json
+        /from2.json
+        /to.json
+        /to2.json
+        /iorConfigs.config
+</code></pre>
+<p>These are the client connection config that are required by every client that connects to the IOR-SocketServer, and are very important. These files contains server and client related configs. These files can also be downloaded through Controlnet Frontend from connections section.</p>
+<p>But by default, these configuration files can be used to Quick Start the client application. Other than that iotConfig.config file is not the connection configuration, but has some external configuration that can be used by IOR Client.</p>
+<h3 id="lets-go">Lets go</h3>
+<p>In this section we will create a and understand, how the connectivity and connection works in a device.</p>
+<p>When a socket server instance is created, it also creates a default user at the server side along with some devices and connections listed below:</p>
+<ul>
+<li>Device 1 - Master 1 (type = Raspberry Pi)</li>
+<li>Device 2 - Slave 1 (type = Raspberry Pi)</li>
+<li>Device 3 - Master 2 (type = Raspberry Pi)</li>
+<li>Device 4 - Slave 2 (type = Raspberry Pi)</li>
+</ul>
+<p>Master 1,2 and Slave 1,2 are just device name given, it doesn't mean that the only master can control the slave. The communication is bidirectional.</p>
+<p><img alt="Device" src="../img/devices.png" /></p>
+<p>After creating a device, the devices will not pair up to each other automatically, we will need to specify a connection between those. See below image. There are 2 connections already created</p>
+<ul>
+<li>Connection 1: Master 1 &lt;--&gt; Slave 1</li>
+<li>Connection 2: Master 2 &lt;--&gt; Slave 2</li>
+</ul>
+<p><img alt="Connections" src="../img/connections.png" /></p>
+<p>After creating a connection, users can download the configuration file for each connecting device from the download button. These are required and important file, as they store client configurations.</p>
+<p>In the <a href="#connection-config">above section</a>, we specified json files, these are the same connection file which store client configuration.</p>
+<ul>
+<li>from.json = Master 1</li>
+<li>to.json = Slave 1</li>
+<li>from.json = Master 2</li>
+<li>to.json = Slave 2</li>
+</ul>
+<p>These json files also help socket-server to authenticate. </p>
+<h2 id="whats-next">Whats Next</h2>
+<p>There is more content to add.</p></div>
         
         
     </div>
@@ -166,7 +203,7 @@
       </footer>
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="../../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
 
     
     <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
@@ -174,10 +211,10 @@
     <script>hljs.initHighlightingOnLoad();</script>
     
 
-    <script>var base_url = "../.."</script>
+    <script>var base_url = ".."</script>
     
-    <script src="../../js/base.js"></script>
-    <script src="../../search/main.js"></script>
+    <script src="../js/base.js"></script>
+    <script src="../search/main.js"></script>
 
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">

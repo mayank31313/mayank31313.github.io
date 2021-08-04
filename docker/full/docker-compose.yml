@@ -1,9 +1,12 @@
 version: '3'
 services:
-  haproxy:
-    image: mayank31313/ior-haproxy
+  proxy:
+    image: mayank31313/ior-proxy
     ports:
       - 80:80
+      - 443:443
+    environment: 
+      - ip=192.168.56.5
   database:
     image: mongo
     ports:

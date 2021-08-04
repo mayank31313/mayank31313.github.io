@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: controlnet-demo
+  namespace: controlnet
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: controlnet
+  template:
+    metadata:
+      labels:
+        name: controlnet
+    spec:
+      containers:
+      - name: ior-backend
+        image: mayank31313/ior-backend
+        env:
+        - name: mongo.uri
+          value: mongodb://admin:legomindstromSEV3%23@192.168.46.11:27017/?authSource=admin
+      - name: ior-socket-server
+        image: mayank31313/socket-server
+        env:
+        - name: mongo.uri
+          value: mongodb://admin:legomindstromSEV3%23@192.168.46.11:27017/?authSource=admin
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: controlnet-service
+  namespace: controlnet
+spec:
+  type: NodePort
+  selector:
+    name: controlnet
+  ports:
+  - port: 8080
+    name: backendport
+    targetPort: 8080
+    nodePort: 32577
+  - port: 8000
+    name: socketport
+    targetPort: 8000
+    nodePort: 32578
+  - port: 5001
+    name: apiport
+    targetPort: 5001
+    nodePort: 32579
