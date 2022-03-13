@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
         <script src="static/jquery.js"></script>
         <script src="static/underscore.js"></script>
         <script src="static/doctools.js"></script>
@@ -84,7 +87,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">ior_research</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">ior_research package</a><ul>
@@ -95,8 +98,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-ior_research.IORReceiver">ior_research.IORReceiver module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-ior_research.IORTransmitter">ior_research.IORTransmitter module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-ior_research.IOTClient">ior_research.IOTClient module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-ior_research.mqtt">ior_research.mqtt module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ior-research-iotclient-module">ior_research.IOTClient module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ior-research-mqtt-module">ior_research.mqtt module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-ior_research">Module contents</a></li>
 </ul>
 </li>
@@ -179,10 +182,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="ior_research.utils.html">ior_research.utils package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="ior_research.utils.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ior_research.utils.html#module-ior_research.utils.aes">ior_research.utils.aes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ior_research.utils.html#ior-research-utils-aes-module">ior_research.utils.aes module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ior_research.utils.html#module-ior_research.utils.httpclients">ior_research.utils.httpclients module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ior_research.utils.html#module-ior_research.utils.proxy">ior_research.utils.proxy module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ior_research.utils.html#module-ior_research.utils.video">ior_research.utils.video module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ior_research.utils.html#ior-research-utils-video-module">ior_research.utils.video module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ior_research.utils.html#module-ior_research.utils">Module contents</a></li>
 </ul>
 </li>
@@ -198,212 +201,22 @@
 <div class="section" id="module-ior_research.IORTransmitter">
 <span id="ior-research-iortransmitter-module"></span><h2>ior_research.IORTransmitter module<a class="headerlink" href="#module-ior_research.IORTransmitter" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-ior_research.IOTClient">
-<span id="ior-research-iotclient-module"></span><h2>ior_research.IOTClient module<a class="headerlink" href="#module-ior_research.IOTClient" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="ior_research.IOTClient.IOTClient">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ior_research.IOTClient.</span></code><code class="sig-name descname"><span class="pre">IOTClient</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_close</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_logs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">onConnect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">socketServer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">httpPort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8080</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tcpPort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isTunneled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">useSSL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/IOTClient.html#IOTClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.IOTClient.IOTClient" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
-<p>Class used to access IOR Server</p>
-<dl class="py method">
-<dt id="ior_research.IOTClient.IOTClient.close">
-<code class="sig-name descname"><span class="pre">close</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/IOTClient.html#IOTClient.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.IOTClient.IOTClient.close" title="Permalink to this definition">¶</a></dt>
-<dd><p>Closes the client and terminates the running Thread</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ior_research.IOTClient.IOTClient.createRevertedClients">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">createRevertedClients</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'localhost'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">httpPort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8080</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tcpPort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/IOTClient.html#IOTClient.createRevertedClients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.IOTClient.IOTClient.createRevertedClients" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="ior_research.IOTClient.IOTClient.getSocket">
-<code class="sig-name descname"><span class="pre">getSocket</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/IOTClient.html#IOTClient.getSocket"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.IOTClient.IOTClient.getSocket" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="ior_research.IOTClient.IOTClient.readData">
-<code class="sig-name descname"><span class="pre">readData</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/IOTClient.html#IOTClient.readData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.IOTClient.IOTClient.readData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read data sended by server</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ior_research.IOTClient.IOTClient.reconnect">
-<code class="sig-name descname"><span class="pre">reconnect</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/IOTClient.html#IOTClient.reconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.IOTClient.IOTClient.reconnect" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reconnects IOT Client to server</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ior_research.IOTClient.IOTClient.run">
-<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/IOTClient.html#IOTClient.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.IOTClient.IOTClient.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method representing the thread’s activity.</p>
-<p>You may override this method in a subclass. The standard run() method
-invokes the callable object passed to the object’s constructor as the
-target argument, if any, with sequential and keyword arguments taken
-from the args and kwargs arguments, respectively.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ior_research.IOTClient.IOTClient.sendMessage">
-<code class="sig-name descname"><span class="pre">sendMessage</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/IOTClient.html#IOTClient.sendMessage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.IOTClient.IOTClient.sendMessage" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sends message to server, also constructs message to server acceptable format
-message: alpha numeric string
-metadata: optional object, that specificies additional data on transfer
-status: optional field, it specifies message type</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ior_research.IOTClient.IOTClient.setOnConnect">
-<code class="sig-name descname"><span class="pre">setOnConnect</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">on_connect</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/IOTClient.html#IOTClient.setOnConnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.IOTClient.IOTClient.setOnConnect" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="ior_research.IOTClient.IOTClient.set_on_receive">
-<code class="sig-name descname"><span class="pre">set_on_receive</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/IOTClient.html#IOTClient.set_on_receive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.IOTClient.IOTClient.set_on_receive" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="ior_research.IOTClient.IOTClient.version">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">version</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/IOTClient.html#IOTClient.version"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.IOTClient.IOTClient.version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="ior_research.IOTClient.IOTClientWrapper">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ior_research.IOTClient.</span></code><code class="sig-name descname"><span class="pre">IOTClientWrapper</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/IOTClient.html#IOTClientWrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.IOTClient.IOTClientWrapper" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
-<p>IOTClientWrapper is class, which wrapes IOTClient clients. It manages connection status to the server and handles IOTClient receiving messages</p>
-<dl class="py method">
-<dt id="ior_research.IOTClient.IOTClientWrapper.recreateClient">
-<code class="sig-name descname"><span class="pre">recreateClient</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/IOTClient.html#IOTClientWrapper.recreateClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.IOTClient.IOTClientWrapper.recreateClient" title="Permalink to this definition">¶</a></dt>
-<dd><p>Recreates IOT Client from config</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ior_research.IOTClient.IOTClientWrapper.run">
-<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/IOTClient.html#IOTClientWrapper.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.IOTClient.IOTClientWrapper.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method representing the thread’s activity.</p>
-<p>You may override this method in a subclass. The standard run() method
-invokes the callable object passed to the object’s constructor as the
-target argument, if any, with sequential and keyword arguments taken
-from the args and kwargs arguments, respectively.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ior_research.IOTClient.IOTClientWrapper.sendMessage">
-<code class="sig-name descname"><span class="pre">sendMessage</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/IOTClient.html#IOTClientWrapper.sendMessage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.IOTClient.IOTClientWrapper.sendMessage" title="Permalink to this definition">¶</a></dt>
-<dd><p>Send message to server
-:param <a href="#id1"><span class="problematic" id="id2">**</span></a>data: a dict object, acceptable key-values are</p>
-<blockquote>
-<div><p>message: main message</p>
-<p>status: (optional) status of the message</p>
-<p>metadata: (optional) metadata of the message, if any</p>
-</div></blockquote>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ior_research.IOTClient.IOTClientWrapper.setOnConnect">
-<code class="sig-name descname"><span class="pre">setOnConnect</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">onConnect</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/IOTClient.html#IOTClientWrapper.setOnConnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.IOTClient.IOTClientWrapper.setOnConnect" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="ior_research.IOTClient.IOTClientWrapper.set_on_receive">
-<code class="sig-name descname"><span class="pre">set_on_receive</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/IOTClient.html#IOTClientWrapper.set_on_receive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.IOTClient.IOTClientWrapper.set_on_receive" title="Permalink to this definition">¶</a></dt>
-<dd><p>sets on receive function which is called everytime a message is received
-fn: function to be called when a message is received</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ior_research.IOTClient.IOTClientWrapper.terminate">
-<code class="sig-name descname"><span class="pre">terminate</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/IOTClient.html#IOTClientWrapper.terminate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.IOTClient.IOTClientWrapper.terminate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Terminates IOT Client connection to the server and closes the client</p>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="ior-research-iotclient-module">
+<h2>ior_research.IOTClient module<a class="headerlink" href="#ior-research-iotclient-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-ior_research.mqtt">
-<span id="ior-research-mqtt-module"></span><h2>ior_research.mqtt module<a class="headerlink" href="#module-ior_research.mqtt" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt id="ior_research.mqtt.Communicator">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ior_research.mqtt.</span></code><code class="sig-name descname"><span class="pre">Communicator</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deviceCode</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/mqtt.html#Communicator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.mqtt.Communicator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Control Net Communicator for MQTT Protocol, it manages Protocol conversion from ControlNet Protocol to MQTT and vice versa</p>
-<dl class="py method">
-<dt id="ior_research.mqtt.Communicator.connect">
-<code class="sig-name descname"><span class="pre">connect</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">server</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'localhost'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/mqtt.html#Communicator.connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.mqtt.Communicator.connect" title="Permalink to this definition">¶</a></dt>
-<dd><p>Connects to mqtt server on port 1883.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ior_research.mqtt.Communicator.sendMessage">
-<code class="sig-name descname"><span class="pre">sendMessage</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/mqtt.html#Communicator.sendMessage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.mqtt.Communicator.sendMessage" title="Permalink to this definition">¶</a></dt>
-<dd><p>publish message to MQTT Broker
-sm: Message String
-to: optional parameter, specifies a target client</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ior_research.mqtt.Communicator.sendObject">
-<code class="sig-name descname"><span class="pre">sendObject</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/mqtt.html#Communicator.sendObject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.mqtt.Communicator.sendObject" title="Permalink to this definition">¶</a></dt>
-<dd><p>publish message to MQTT Broker
-sm: SocketMessage object
-to: optional parameter, specifies a target client</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ior_research.mqtt.Communicator.setOnConnect">
-<code class="sig-name descname"><span class="pre">setOnConnect</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">onConnect</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/mqtt.html#Communicator.setOnConnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.mqtt.Communicator.setOnConnect" title="Permalink to this definition">¶</a></dt>
-<dd><p>setOnConnect method sets a onConnect method.
-onConnect: takes a function</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="ior_research.mqtt.Communicator.setOnReceive">
-<code class="sig-name descname"><span class="pre">setOnReceive</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">onReceive</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/mqtt.html#Communicator.setOnReceive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.mqtt.Communicator.setOnReceive" title="Permalink to this definition">¶</a></dt>
-<dd><p>setOnReceive method sets a onReceive method.
-onReceive: takes a function</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt id="ior_research.mqtt.createClient">
-<code class="sig-prename descclassname"><span class="pre">ior_research.mqtt.</span></code><code class="sig-name descname"><span class="pre">createClient</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'localhost'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/mqtt.html#createClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.mqtt.createClient" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="ior_research.mqtt.createReverseClients">
-<code class="sig-prename descclassname"><span class="pre">ior_research.mqtt.</span></code><code class="sig-name descname"><span class="pre">createReverseClients</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'localhost'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/mqtt.html#createReverseClients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.mqtt.createReverseClients" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a pair of communicator clients given by common token and unique device codes
-token: A Alphanumeric String aka (api key)
-code1: device 1 code
-code2: device 2 code
-server: optional parameter, defines MQTT Broker ip address</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="ior_research.mqtt.on_connect">
-<code class="sig-prename descclassname"><span class="pre">ior_research.mqtt.</span></code><code class="sig-name descname"><span class="pre">on_connect</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userdata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flags</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/mqtt.html#on_connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.mqtt.on_connect" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="ior_research.mqtt.on_message">
-<code class="sig-prename descclassname"><span class="pre">ior_research.mqtt.</span></code><code class="sig-name descname"><span class="pre">on_message</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">paho.mqtt.client.MQTTMessage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payload</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research/mqtt.html#on_message"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.mqtt.on_message" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<div class="section" id="ior-research-mqtt-module">
+<h2>ior_research.mqtt module<a class="headerlink" href="#ior-research-mqtt-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-ior_research">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ior_research" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="ior_research.SocketMessage">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">ior_research.</span></code><code class="sig-name descname"><span class="pre">SocketMessage</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research.html#SocketMessage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.SocketMessage" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ior_research.SocketMessage">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">ior_research.</span></span><span class="sig-name descname"><span class="pre">SocketMessage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research.html#SocketMessage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.SocketMessage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">json.encoder.JSONEncoder</span></code></p>
 <p>Message Model for Control Net Architecture.</p>
 <dl class="py method">
-<dt id="ior_research.SocketMessage.default">
-<code class="sig-name descname"><span class="pre">default</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research.html#SocketMessage.default"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.SocketMessage.default" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="ior_research.SocketMessage.default">
+<span class="sig-name descname"><span class="pre">default</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">o</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ior_research.html#SocketMessage.default"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ior_research.SocketMessage.default" title="Permalink to this definition">¶</a></dt>
 <dd><p>Implement this method in a subclass such that it returns
 a serializable object for <code class="docutils literal notranslate"><span class="pre">o</span></code>, or calls the base implementation
 (to raise a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>).</p>
