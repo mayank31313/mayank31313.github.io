@@ -137,6 +137,10 @@
             <li class="second-level"><a href="#advance-lookup-at-cndi">Advance: Lookup at CNDI</a></li>
                 
                 <li class="third-level"><a href="#external-yaml-configurations">External yaml configurations</a></li>
+            <li class="second-level"><a href="#flask-application">Flask Application</a></li>
+                
+            <li class="second-level"><a href="#implementation-of-cndi">Implementation of CNDI</a></li>
+                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -145,7 +149,7 @@
 <p><a href="https://github.com/mayank31313/python-dependency-injection">Official Repo</a></p>
 <h3 id="introduction">Introduction</h3>
 <p>As the name suggest, this application is for injecting dependencies into other objects. It's much 
-similar to that.</p>
+similar to Java Spring Framework. </p>
 <h3 id="show-me-the-code">Show me the code</h3>
 <p>Create a test bean class for custom dependency injection</p>
 <pre><code># Create a class for bean
@@ -200,7 +204,7 @@ mqtt:
 with different configuration for mqtt brokers. Below is the code for how to use it.</p>
 <pre><code>from cndi.env import loadEnvFromFile, getContextEnvironment
 
-# First step: set the profile, this can be set directly to environment **RCN_ENVS_CONFIG.active.profile** or using os package
+# First step: set the profile, this can be set directly to environment RCN_ENVS_CONFIG.active.profile or using os package
 
 RCN_ENVS_CONFIG = 'RCN_ENVS_CONFIG'
 os.environ[f"{RCN_ENVS_CONFIG}.active.profile"] = "local" # Set profile to use
@@ -210,7 +214,21 @@ loadEnvFromFile("path/to/yaml")
 
 server = getContextEnvironment("mqtt.broker") # Get Property Value
 port = int(getContextEnvironment("mqtt.port")) # Get Property Value
-</code></pre></div>
+</code></pre>
+<h3 id="flask-application">Flask Application</h3>
+<p>Let's create a flask app to get the working on CNDI in depth (well below video doesn't go that far but gives some understanding).
+In this example we will create a Flask app which will listen at /events.</p>
+<p>Find the <a href="https://github.com/mayank31313/PythonDITest">repository</a> here.</p>
+<p><strong><em>NOTE:</em></strong> : The above app requires a mqtt broker running in background. Otherwise it will throw exception while calling connect method.</p>
+<p>Route: /event will send a timestamp to mqtt topic defined in the </p>
+<pre><code># Directory Structure
+src/
+  + ./beans/*/*.py          -&gt;  Define beans in this modules and sub modules. 
+  + ./app.py                -&gt;  Main application.
+  + ./configurations/*.yml  -&gt;  YAML files to define external configurations.
+</code></pre>
+<h3 id="implementation-of-cndi">Implementation of CNDI</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/T2LVfQRifQ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
         
         
     </div>
