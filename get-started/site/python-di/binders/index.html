@@ -8,10 +8,10 @@
     
     
     
-    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Quick Start - Control Net</title>
+    <title>Binders - Control Net</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -19,9 +19,9 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
     <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
-    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-    <link href="../css/base.min.css" rel="stylesheet">
-    <link href="../css/cinder.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
 
     
         
@@ -59,7 +59,7 @@
             <!-- Main title -->
 
             
-              <a class="navbar-brand" href="..">Control Net</a>
+              <a class="navbar-brand" href="../..">Control Net</a>
             
         </div>
 
@@ -70,7 +70,7 @@
                 
                 
                     <li >
-                        <a href="..">Home</a>
+                        <a href="../..">Home</a>
                     </li>
                 
                 
@@ -81,13 +81,13 @@
                         
                             
 <li >
-    <a href="../user_guide/client/">Client</a>
+    <a href="../../user_guide/client/">Client</a>
 </li>
 
                         
                             
 <li >
-    <a href="../user_guide/server/">Server</a>
+    <a href="../../user_guide/server/">Server</a>
 </li>
 
                         
@@ -101,14 +101,14 @@
                         <ul class="dropdown-menu">
                         
                             
-<li class="active">
-    <a href="./">Quick Start</a>
+<li >
+    <a href="../">Quick Start</a>
 </li>
 
                         
                             
-<li >
-    <a href="binders/">Binders</a>
+<li class="active">
+    <a href="./">Binders</a>
 </li>
 
                         
@@ -125,12 +125,12 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../user_guide/server/">
+                        <a rel="prev" href="../">
                             <i class="fas fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li >
-                        <a rel="next" href="binders/">
+                    <li class="disabled">
+                        <a rel="next" >
                             Next <i class="fas fa-arrow-right"></i>
                         </a>
                     </li>
@@ -144,106 +144,93 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#python-dependency-injection">Python Dependency Injection</a></li>
+        <li class="first-level active"><a href="#binders">Binders</a></li>
             <li class="second-level"><a href="#introduction">Introduction</a></li>
                 
-            <li class="second-level"><a href="#show-me-the-code">Show me the code</a></li>
+            <li class="second-level"><a href="#message-binder-and-messagesubscriber-channel">Message Binder and Message/Subscriber Channel</a></li>
                 
-            <li class="second-level"><a href="#advance-lookup-at-cndi">Advance: Lookup at CNDI</a></li>
-                
-                <li class="third-level"><a href="#external-yaml-configurations">External yaml configurations</a></li>
-            <li class="second-level"><a href="#flask-application">Flask Application</a></li>
-                
-            <li class="second-level"><a href="#implementation-of-cndi">Implementation of CNDI</a></li>
-                
+                <li class="third-level"><a href="#syntax">Syntax</a></li>
+                <li class="third-level"><a href="#implementation">Implementation</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="python-dependency-injection">Python Dependency Injection</h1>
-<p><a href="https://github.com/mayank31313/python-dependency-injection">Official Repo</a></p>
+<h1 id="binders">Binders</h1>
 <h3 id="introduction">Introduction</h3>
-<p>As the name suggest, this application is for injecting dependencies into other objects. It's much 
-similar to Java Spring Framework. </p>
-<h3 id="show-me-the-code">Show me the code</h3>
-<p>Create a test bean class for custom dependency injection</p>
-<pre><code># Create a class for bean
-class TestBean:
-    def __init__(self, name):
-        self.name = name
+<p>Now lets start the advance understanding for the cndi, with the quick start guide we saw how to use
+Autowired annotations and initialize a global bean object. It this part we will take a look at binders
+and Message brokers.</p>
+<p>The binders are actually used to bind a topic to a channel, so let's take an example of a Pub/Sub Message Broker,
+where we have a Publisher and a Subscriber. A publisher will publish a message to 'xyz' topic, a Subscriber will subscribe
+to 'xyz' topic and will receive any event data publish to that topic. This is how a messaging system work in a high level overview.</p>
+<p>Now so let's say we have a message broker, a publisher and a subscriber that subscribe to a topic[s] in a normal architecture we create an instance for publisher and subscriber
+that connects to message broker and boom we have our messaging system app.</p>
+<p>But take a scenario where we have to deal with multiple message broker servers, (i.e. mqtt, rabbit etc) we might need to manually take care of publishers/subscribers, 
+to resolve this problem we add a layer in the pub/sub architecture and the layer is called <em>Binder</em>.</p>
+<h3 id="message-binder-and-messagesubscriber-channel">Message Binder and Message/Subscriber Channel</h3>
+<p>To use message binder we need a message channel, a message channel can a alphabetic string that binds a topic.</p>
+<h4 id="syntax">Syntax</h4>
+<pre><code>rcn.binders.message.mqtt.&lt;producer|consumer&gt;.&lt;channelName&gt;.destination = &lt;topic-name&gt;
 </code></pre>
-<p>Define a bean method to return a Bean Object using @Bean.</p>
-<p><strong><em>NOTE:</em></strong> : The bean method parameters and return type should have the class name of the dependent and return type object, 
-to let it know which class object should be injected and returned. </p>
-<pre><code># Create a bean object for Autowiring   
-@Bean()
-def getTestBean() -&gt; TestBean:
-    return TestBean("Test 123")
+<h4 id="implementation">Implementation</h4>
+<p>To implement Binders in the Application we need to use MessageChannel/SubscriberChannel class, MessageChannel is for producer/publisher and SubscriberChannel is for consumer/subscriber.
+The default configuration properties that need to be added in the yaml configuration are below</p>
+<pre><code>rcn.binders.message.enable: Enables the DefaultMessageBinder
+rcn.binders.message.default: The property which describes the message broker to use currently only mqtt is supported
+rcn.binders.message.brokerUrl: ip address to broker
+rcn.binders.message.brokerPort: port of the broker to connect
 </code></pre>
-<p>Test your dependency injection, using @Autowired.</p>
-<p><strong><em>NOTE:</em></strong> : The autowired method parameters should have the class name of the Dependent Object, 
-to let it know which class object should be injected. </p>
-<pre><code>testBean = None
-
-# Autowire the dependency
-@Autowired()
-def setTestBean(bean: TestBean):
-    global testBean
-    print(bean)
-    testBean = bean
-
-if __name__ == "__main__":
-    app = AppInitilizer()  # Create a instance for AppInitializer
-    app.componentScan("test_module") # Add package to scan for any component or bean
-
-    app.run() # Call run methods to inject beans
-    print(testBean.name)
-    print(type(testBean))
+<p>The yaml properties looks like:</p>
+<pre><code>rcn:
+  binders:
+    message:
+      enable: true
+      default: mqtt
+      brokerUrl: localhost
+      brokerPort: 1883
 </code></pre>
-<h3 id="advance-lookup-at-cndi">Advance: Lookup at CNDI</h3>
-<h4 id="external-yaml-configurations">External yaml configurations</h4>
-<p>Using cndi users can configure the application on different environemnt setting, 
-using the <strong>rcn.profile</strong> attribute in the yaml file. Checkout the below yaml configuration</p>
-<pre><code>rcn.profile: local
-mqtt:
-    broker: localhost
-    port: 1883
+<h5 id="create-producerpublisher">Create Producer/Publisher</h5>
+<p>Let's create Producer using message binder, using @Output decoration we can create a MessageChannel instance that automatically configures a channel to the topic.
+The only thing to produce a message is to call send method from MessageChannel</p>
+<pre><code>@Component
+class Source:
+    outputChannel1Binding: MessageChannel
+    @Output("&lt;channel-name&gt;")
+    def setOutputForDefaultChannel(self, messageBinder: MqttProducerBinding):
+        self.outputChannel1Binding = messageBinder
 
----
-rcn.profile: dev
-mqtt:
-    broker: dev_mqtt_adderss.com
-    port: 11883
+# Create App Initializer
+
+appInitializer = AppInitializer()
+appInitializer.componentScan("")
+appInitializer.run()
+
+# YAML Configuration
+rcn:
+  binders:
+    message:
+      mqtt:
+        producer:
+          &lt;channel-name&gt;:
+            destination: &lt;topic&gt;
 </code></pre>
-<p>The above yaml has the configurations for two environment <strong>local</strong> and <strong>dev</strong>,
-with different configuration for mqtt brokers. Below is the code for how to use it.</p>
-<pre><code>from cndi.env import loadEnvFromFile, getContextEnvironment
+<h5 id="create-subscriberconsumer">Create Subscriber/Consumer</h5>
+<p>Let's create Consumer using message binder, using @Input decoration we can create a SubscriberChannel instance that automatically configures a channel to the topic.
+The simple consumer looks like the below code</p>
+<pre><code>@Input("&lt;channel-name&gt;")
+def setInputForDefaultChannel(message):
+    print(message)
 
-# First step: set the profile, this can be set directly to environment RCN_ENVS_CONFIG.active.profile or using os package
+# YAML Configuration
 
-RCN_ENVS_CONFIG = 'RCN_ENVS_CONFIG'
-os.environ[f"{RCN_ENVS_CONFIG}.active.profile"] = "local" # Set profile to use
-
-# Load yaml file
-loadEnvFromFile("path/to/yaml")
-
-server = getContextEnvironment("mqtt.broker") # Get Property Value
-port = int(getContextEnvironment("mqtt.port")) # Get Property Value
-</code></pre>
-<h3 id="flask-application">Flask Application</h3>
-<p>Let's create a flask app to get the working on CNDI in depth (well below video doesn't go that far but gives some understanding).
-In this example we will create a Flask app which will listen at /events.</p>
-<p>Find the <a href="https://github.com/mayank31313/PythonDITest">repository</a> here.</p>
-<p><strong><em>NOTE:</em></strong> : The above app requires a mqtt broker running in background. Otherwise it will throw exception while calling connect method.</p>
-<p>Route: /event will send a timestamp to mqtt topic defined in the </p>
-<pre><code># Directory Structure
-src/
-  + ./beans/*/*.py          -&gt;  Define beans in this modules and sub modules. 
-  + ./app.py                -&gt;  Main application.
-  + ./configurations/*.yml  -&gt;  YAML files to define external configurations.
-</code></pre>
-<h3 id="implementation-of-cndi">Implementation of CNDI</h3>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/T2LVfQRifQ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+rcn:
+  binders:
+    message:
+      mqtt:
+        consumer:
+          &lt;channel-name&gt;:
+            destination: &lt;topic&gt;
+</code></pre></div>
         
         
     </div>
@@ -263,7 +250,7 @@ src/
       </footer>
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
 
     
     <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
@@ -271,10 +258,10 @@ src/
     <script>hljs.initHighlightingOnLoad();</script>
     
 
-    <script>var base_url = ".."</script>
+    <script>var base_url = "../.."</script>
     
-    <script src="../js/base.js"></script>
-    <script src="../search/main.js"></script>
+    <script src="../../js/base.js"></script>
+    <script src="../../search/main.js"></script>
 
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
