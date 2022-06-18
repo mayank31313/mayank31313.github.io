@@ -112,6 +112,12 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../../python-di/events/">Events API</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
@@ -153,6 +159,9 @@
                 
             <li class="second-level"><a href="#lets-go">Lets go</a></li>
                 
+            <li class="second-level"><a href="#events-and-watchers">Events and Watchers</a></li>
+                
+                <li class="third-level"><a href="#code-snippet">Code Snippet</a></li>
             <li class="second-level"><a href="#whats-next">Whats Next</a></li>
                 
     </ul>
@@ -203,6 +212,46 @@
 <li>to.json = Slave 2</li>
 </ul>
 <p>These json files also help socket-server to authenticate. </p>
+<h3 id="events-and-watchers">Events and Watchers</h3>
+<p>Events and Watchers are thread based operations, watchers invoke certain events those are configure
+in IOR Client, to check the big picture <a href="/python-di/events">check here</a> a predefined event amd watcher is already present in ior client
+which watches the latest message read time to check for any error in realtime application. 
+But it's not enabled by default below properties needs to be configured in order to use it.</p>
+<p><strong>NOTE:</strong>
+This <a href="/python-di/events/#configuration-properties">properties</a> are required before using the MessageWatcher</p>
+<p>The below keys should be prefixed with <strong>rcn.ior.client.</strong> in order to work with events api.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>events.delay.exceeded.name</td>
+<td>trigger.iorClient.delay.exceeded</td>
+<td>The name of the event to call if the difference between last message and current exceeded to use it the event should be already registered using EventHandler class</td>
+</tr>
+<tr>
+<td>expected.delay</td>
+<td>0.5 sec</td>
+<td>The time difference in seconds to accept for certain amount of delay in messages</td>
+</tr>
+</tbody>
+</table>
+<h4 id="code-snippet">Code Snippet</h4>
+<pre><code>@Bean()
+def getEventHandler() -&gt; EventHandler:
+    eventHandler = EventHandler()
+    eventHandler.start()
+
+    eventHandler.registerEvent(Event(getContextEnvironment("events.delay.exceeded.name"), 
+            lambda triggerData,_: print(triggerData)))
+    return eventHandler
+</code></pre>
+<p>After creating a EventHandler object we just need to register an event to the application context, whenever the watcher detects a more time difference than specified it will trigger the event. </p>
 <h2 id="whats-next">Whats Next</h2>
 <p>There is more content to add.</p></div>
         

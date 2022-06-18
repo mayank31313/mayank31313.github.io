@@ -8,10 +8,10 @@
     
     
     
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Home - Control Net</title>
+    <title>Events API - Control Net</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -19,9 +19,9 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
     <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
-    <link href="css/bootstrap-custom.min.css" rel="stylesheet">
-    <link href="css/base.min.css" rel="stylesheet">
-    <link href="css/cinder.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
 
     
         
@@ -40,7 +40,7 @@
      
 </head>
 
-<body class="homepage" >
+<body>
 
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
@@ -59,7 +59,7 @@
             <!-- Main title -->
 
             
-              <a class="navbar-brand" href=".">Control Net</a>
+              <a class="navbar-brand" href="../..">Control Net</a>
             
         </div>
 
@@ -69,8 +69,8 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="active">
-                        <a href=".">Home</a>
+                    <li >
+                        <a href="../..">Home</a>
                     </li>
                 
                 
@@ -81,13 +81,13 @@
                         
                             
 <li >
-    <a href="user_guide/client/">Client</a>
+    <a href="../../user_guide/client/">Client</a>
 </li>
 
                         
                             
 <li >
-    <a href="user_guide/server/">Server</a>
+    <a href="../../user_guide/server/">Server</a>
 </li>
 
                         
@@ -96,25 +96,25 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">CNDI <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="python-di/">Quick Start</a>
+    <a href="../">Quick Start</a>
 </li>
 
                         
                             
 <li >
-    <a href="python-di/binders/">Binders</a>
+    <a href="../binders/">Binders</a>
 </li>
 
                         
                             
-<li >
-    <a href="python-di/events/">Events API</a>
+<li class="active">
+    <a href="./">Events API</a>
 </li>
 
                         
@@ -130,13 +130,13 @@
                             <i class="fas fa-search"></i> Search
                         </a>
                     </li>
-                    <li class="disabled">
-                        <a rel="prev" >
+                    <li >
+                        <a rel="prev" href="../binders/">
                             <i class="fas fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li >
-                        <a rel="next" href="user_guide/client/">
+                    <li class="disabled">
+                        <a rel="next" >
                             Next <i class="fas fa-arrow-right"></i>
                         </a>
                     </li>
@@ -150,78 +150,94 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#welcome-to-control-net">Welcome to Control Net</a></li>
-            <li class="second-level"><a href="#introduction">Introduction</a></li>
+        <li class="first-level active"><a href="#events-api">Events API</a></li>
+            <li class="second-level"><a href="#invoker-method">Invoker Method</a></li>
                 
-            <li class="second-level"><a href="#getting-started">Getting Started</a></li>
+            <li class="second-level"><a href="#handler-method">Handler Method</a></li>
                 
-                <li class="third-level"><a href="#server">Server</a></li>
-                <li class="third-level"><a href="#client-ior-python">Client (IOR-Python)</a></li>
-            <li class="second-level"><a href="#quick-demo">Quick Demo</a></li>
+                <li class="third-level"><a href="#code">Code</a></li>
+            <li class="second-level"><a href="#register-event">Register Event</a></li>
+                
+            <li class="second-level"><a href="#configuration-properties">Configuration Properties</a></li>
                 
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="welcome-to-control-net">Welcome to Control Net</h1>
-<p><a href="https://iorcloud.ml">Official Portfolio</a>.</p>
-<h2 id="introduction">Introduction</h2>
-<p>Welcome, I am excited to present 
-ControlNet is a communication platform for devices like Raspberry Pi's that support python programming language. The purpose to build this platform is to connect various devices over a network(i.e private &amp; public network). Each has a unique use-case.</p>
-<p>Control Net Architecture is divided in 3 Projects</p>
-<ul>
-<li><a href="https://github.com/mayank31313/IOR-Project">IOR Control Net Tower</a></li>
-<li><a href="https://github.com/mayank31313/SocketServer">IOR Socket Server</a></li>
-<li><a href="https://github.com/mayank31313/IOR-VideoStreaming">IOR Video Streamer</a></li>
-</ul>
-<h2 id="getting-started">Getting Started</h2>
-<h3 id="server">Server</h3>
-<h4 id="setup-docker">Setup Docker</h4>
-<p>Docker is a open platform to run apps in a container and seperate those apps from the infrastructure. You can install docker as per your platform needs from <a href="https://docs.docker.com/engine/install/">here</a>, we will also need Docker Compose which can be installed from this <a href="https://docs.docker.com/compose/install/">page</a>.</p>
-<h4 id="download-docker-compose-file">Download Docker Compose File</h4>
-<pre><code>cd ~
-mkdir controlnet-docker
-cd controlnet-docker
-wget https://mayank31313.github.io/docker/full/docker-compose.yml
-</code></pre>
-<p>The above command will download docker-compose file in the current directory</p>
-<h4 id="run-servers-in-docker">Run servers in Docker</h4>
-<p>To run containers just run the below command in the docker-compose file directory, it will pull necessary images and start docker containers.</p>
-<pre><code>docker-compose up
-</code></pre>
-<p>To stop the containers, run below command</p>
-<pre><code>docker-compose down
-</code></pre>
-<h3 id="client-ior-python">Client (IOR-Python)</h3>
-<p>The client code is available on this <a href="https://github.com/mayank31313/ior-python">github repository</a></p>
-<h4 id="setup-client">Setup Client</h4>
-<p>For this example no external configuration is needed, all the settings are predefined. The below example will only give a use case on the controlnet platform.</p>
-<pre><code>git clone https://github.com/mayank31313/ior-python
-cd ior-python/examples
-python3 LatencyCheck.py ../config/from.json ../config/to.json
-</code></pre>
-<h4 id="usage">Usage</h4>
-<pre><code>config = {
-    "server": "localhost",
-    "httpPort": 5001,
-    "socketServer": "localhost",
-    "tcpPort": 8000,
-    #"useSSL": True    # Optional
+<h2 id="events-api">Events API</h2>
+<p>RCN Events API is a thread based watching for events to occur, it automatically takes care for calling the handler when a event is triggered.
+It requires two methods an invoker and a handler.</p>
+<p><strong>Note</strong> The events API is available in version &gt;= 2.1.1 for <em>cndi</em></p>
+<h3 id="invoker-method">Invoker Method</h3>
+<p>Invoker method decides weather to call a event handler or not, It's that simple this method is a custom method and should return a dict object
+containing a key <b>trigger</b> a boolean, if it returns true the event is triggered otherwise it's not.</p>
+<pre><code>{
+    trigger: booleanValue,
+    otherAttributes...
 }
 </code></pre>
-<h4 id="create-instance-of-iot-client">Create Instance of IOT Client</h4>
-<pre><code>from ior_research.IOTClient import IOTClientWrapper
-iot = IOTClientWrpper(token=token, config = config) #Creating object for IOT Client
+<h3 id="handler-method">Handler Method</h3>
+<p>Handler Method is the method which takes care of an event when its triggered.</p>
+<h4 id="code">Code</h4>
+<h5 id="invoker-method_1">Invoker Method:</h5>
+<p>As discussed above the invoker method will decide if a event should be triggered or not. 
+Below we will define a invoker method that will trigger event every time it's called</p>
+<pre><code>def invokerMethod(eventObject):
+    return dict(trigger=True)
 </code></pre>
-<h4 id="setting-up-receive-function-to-do-some-operation-when-a-response-is-received">Setting up Receive Function to do some Operation when a response is received.</h4>
-<pre><code>iot.set_on_receive(lambda x: print(x))
+<p>Here we are return trigger as true, so it will trigger event everytime we can manage the event triggering through this.</p>
+<h5 id="handler-method_1">Handler Method</h5>
+<p>Below is a event handler method with two arguments, the first argument is the dictObject that we returned from the <em>InvokerMethod</em>,
+the second object is the interesting one this is the same object we are pass as single object in invoker method. Lets have a look when we create an EventObject below. </p>
+<pre><code>def handle(callEvent, eventObject):
+    # do something
+    pass
 </code></pre>
-<h4 id="last-but-not-the-least-start-the-iotclient">Last but not the least start the IOTClient</h4>
-<pre><code>iot.start()
-iot.join()
+<h3 id="register-event">Register Event</h3>
+<p>Let's check how to register a event into context.</p>
+<pre><code># Event Object
+event = Event(event_name="testing_event",                       # Event Name
+                event_handler=handle,                           # Set Handler Method
+                event_object=dict(informativeData="hello"),     # Set Initial EventData
+                event_invoker=invokerMethod)                    # Set Handler Method
+
+# Create a Event Handler object
+# Note: The event handler should be invoked as a cndi component, rather initializing it manually 
+eventHandler = EventHandler()
+
+eventHandler.registerEvent(event=event)
+
+# Start Event Handler
+eventHandler.start()
 </code></pre>
-<h2 id="quick-demo">Quick Demo</h2>
-<p><a href="https://youtu.be/RZJzZkTJpJQ"><img src="https://img.youtube.com/vi/RZJzZkTJpJQ/maxresdefault.jpg" width="50%"></a></p></div>
+<h3 id="configuration-properties">Configuration Properties</h3>
+<p>The below keys should be prefixed with <strong>rcn.events.</strong> in order to work with events api.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enable</td>
+<td>False</td>
+<td>Enables Events API</td>
+</tr>
+<tr>
+<td>waittime</td>
+<td>2.0 sec</td>
+<td>The time to wait for event cycle to call invoker method</td>
+</tr>
+<tr>
+<td>expected.invoker.time</td>
+<td>3 millis</td>
+<td>The expected time for invoker method to run, exceding the expected time will result in raising a warning log</td>
+</tr>
+</tbody>
+</table></div>
         
         
     </div>
@@ -241,7 +257,7 @@ iot.join()
       </footer>
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
 
     
     <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
@@ -249,10 +265,10 @@ iot.join()
     <script>hljs.initHighlightingOnLoad();</script>
     
 
-    <script>var base_url = "."</script>
+    <script>var base_url = "../.."</script>
     
-    <script src="js/base.js"></script>
-    <script src="search/main.js"></script>
+    <script src="../../js/base.js"></script>
+    <script src="../../search/main.js"></script>
 
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -323,8 +339,3 @@ iot.join()
     </body>
 
 </html>
-
-<!--
-MkDocs version : 1.2.3
-Build Date UTC : 2022-06-18 00:22:51.052105+00:00
--->
