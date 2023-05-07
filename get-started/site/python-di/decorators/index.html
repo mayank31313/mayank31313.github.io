@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Events API - ScaleWorks</title>
+    <title>Other Decorators - ScaleWorks</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -140,14 +140,14 @@
 
                         
                             
-<li class="active">
-    <a href="./">Events API</a>
+<li >
+    <a href="../events/">Events API</a>
 </li>
 
                         
                             
-<li >
-    <a href="../decorators/">Other Decorators</a>
+<li class="active">
+    <a href="./">Other Decorators</a>
 </li>
 
                         
@@ -164,12 +164,12 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../binders/">
+                        <a rel="prev" href="../events/">
                             <i class="fas fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li >
-                        <a rel="next" href="../decorators/">
+                    <li class="disabled">
+                        <a rel="next" >
                             Next <i class="fas fa-arrow-right"></i>
                         </a>
                     </li>
@@ -183,94 +183,11 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#events-api">Events API</a></li>
-            <li class="second-level"><a href="#invoker-method">Invoker Method</a></li>
-                
-            <li class="second-level"><a href="#handler-method">Handler Method</a></li>
-                
-                <li class="third-level"><a href="#code">Code</a></li>
-            <li class="second-level"><a href="#register-event">Register Event</a></li>
-                
-            <li class="second-level"><a href="#configuration-properties">Configuration Properties</a></li>
-                
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h2 id="events-api">Events API</h2>
-<p>RCN Events API is a thread based watching for events to occur, it automatically takes care for calling the handler when a event is triggered.
-It requires two methods an invoker and a handler.</p>
-<p><strong>Note</strong> The events API is available in version &gt;= 2.1.1 for <em>cndi</em></p>
-<h3 id="invoker-method">Invoker Method</h3>
-<p>Invoker method decides weather to call a event handler or not, It's that simple this method is a custom method and should return a dict object
-containing a key <b>trigger</b> a boolean, if it returns true the event is triggered otherwise it's not.</p>
-<pre><code>{
-    trigger: booleanValue,
-    otherAttributes...
-}
-</code></pre>
-<h3 id="handler-method">Handler Method</h3>
-<p>Handler Method is the method which takes care of an event when its triggered.</p>
-<h4 id="code">Code</h4>
-<h5 id="invoker-method_1">Invoker Method:</h5>
-<p>As discussed above the invoker method will decide if a event should be triggered or not. 
-Below we will define a invoker method that will trigger event every time it's called</p>
-<pre><code>def invokerMethod(eventObject):
-    return dict(trigger=True)
-</code></pre>
-<p>Here we are return trigger as true, so it will trigger event everytime we can manage the event triggering through this.</p>
-<h5 id="handler-method_1">Handler Method</h5>
-<p>Below is a event handler method with two arguments, the first argument is the dictObject that we returned from the <em>InvokerMethod</em>,
-the second object is the interesting one this is the same object we are pass as single object in invoker method. Lets have a look when we create an EventObject below. </p>
-<pre><code>def handle(callEvent, eventObject):
-    # do something
-    pass
-</code></pre>
-<h3 id="register-event">Register Event</h3>
-<p>Let's check how to register a event into context.</p>
-<pre><code># Event Object
-event = Event(event_name="testing_event",                       # Event Name
-                event_handler=handle,                           # Set Handler Method
-                event_object=dict(informativeData="hello"),     # Set Initial EventData
-                event_invoker=invokerMethod)                    # Set Handler Method
-
-# Create a Event Handler object
-# Note: The event handler should be invoked as a cndi component, rather initializing it manually 
-eventHandler = EventHandler()
-
-eventHandler.registerEvent(event=event)
-
-# Start Event Handler
-eventHandler.start()
-</code></pre>
-<h3 id="configuration-properties">Configuration Properties</h3>
-<p>The below keys should be prefixed with <strong>rcn.events.</strong> in order to work with events api.</p>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Default Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>enable</td>
-<td>False</td>
-<td>Enables Events API</td>
-</tr>
-<tr>
-<td>waittime</td>
-<td>2.0 sec</td>
-<td>The time to wait for event cycle to call invoker method</td>
-</tr>
-<tr>
-<td>expected.invoker.time</td>
-<td>3 millis</td>
-<td>The expected time for invoker method to run, exceding the expected time will result in raising a warning log</td>
-</tr>
-</tbody>
-</table></div>
+</div>
         
         
     </div>

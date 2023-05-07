@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Server - Control Net</title>
+    <title>Server - ScaleWorks</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -59,7 +59,7 @@
             <!-- Main title -->
 
             
-              <a class="navbar-brand" href="../..">Control Net</a>
+              <a class="navbar-brand" href="../..">ScaleWorks</a>
             
         </div>
 
@@ -91,13 +91,40 @@
 </li>
 
                         
+                            
+<li >
+    <a href="../examples/">Client Example</a>
+</li>
+
+                        
                         </ul>
                     </li>
                 
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">CNDI <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Scaleworks CLI <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../rcn/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../rcn/entities/">Entities</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">IoC <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
@@ -115,6 +142,12 @@
                             
 <li >
     <a href="../../python-di/events/">Events API</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../python-di/decorators/">Other Decorators</a>
 </li>
 
                         
@@ -136,7 +169,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="next" href="../../python-di/">
+                        <a rel="next" href="../examples/">
                             Next <i class="fas fa-arrow-right"></i>
                         </a>
                     </li>
@@ -156,6 +189,7 @@
                 <li class="third-level"><a href="#control-net-tower">Control Net Tower</a></li>
                 <li class="third-level"><a href="#socket-server-tunnel-server">Socket Server (Tunnel Server)</a></li>
                 <li class="third-level"><a href="#video-streamer">Video Streamer</a></li>
+                <li class="third-level"><a href="#rcn-drone-backend">RCN Drone Backend</a></li>
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
@@ -172,6 +206,10 @@
 <h3 id="video-streamer">Video Streamer</h3>
 <p>This server is used create a Video Live Stream from a device to end user, it uses WebRTC behind the scenes. Connecting to the server requires JWT Token which can be created through Control Net Tower and the stream can be watch on the <a href="https://mayank31313.github.io/controlnet/index.html#/">Control Net Frontend</a> -&gt; Sign In -&gt; Video Streaming (On Left Drawer), for current build you can stream only 1 Device at a time.</p>
 <p>Click here for <a href="https://hub.docker.com/repository/docker/mayank31313/video-server">Docker Image</a></p>
+<h3 id="rcn-drone-backend">RCN Drone Backend</h3>
+<p>This service specifically created to consumer drone realtime data and processing the attributes like
+altitude, velocity, location etc. Currently, the service in under development. The data will be used export in metric operators
+like prometheus and create dashboards.</p>
 <h4 id="additional-features">Additional Features</h4>
 <p>The Streamer can also be used for Computer Vision and Machine Learning can be also implemented. Users can implement CNN architecture as per the use case.</p></div>
         
