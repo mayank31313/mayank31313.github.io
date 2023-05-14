@@ -8,10 +8,10 @@
     
     
     
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Home - ScaleWorks</title>
+    <title>Features - ScaleWorks</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -19,9 +19,9 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
     <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
-    <link href="css/bootstrap-custom.min.css" rel="stylesheet">
-    <link href="css/base.min.css" rel="stylesheet">
-    <link href="css/cinder.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
 
     
         
@@ -40,7 +40,7 @@
      
 </head>
 
-<body class="homepage" >
+<body>
 
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
@@ -59,7 +59,7 @@
             <!-- Main title -->
 
             
-              <a class="navbar-brand" href=".">ScaleWorks</a>
+              <a class="navbar-brand" href="../..">ScaleWorks</a>
             
         </div>
 
@@ -69,8 +69,8 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="active">
-                        <a href=".">Home</a>
+                    <li >
+                        <a href="../..">Home</a>
                     </li>
                 
                 
@@ -81,19 +81,19 @@
                         
                             
 <li >
-    <a href="user_guide/client/">Client</a>
+    <a href="../../user_guide/client/">Client</a>
 </li>
 
                         
                             
 <li >
-    <a href="user_guide/server/">Server</a>
+    <a href="../../user_guide/server/">Server</a>
 </li>
 
                         
                             
 <li >
-    <a href="user_guide/examples/">Client Example</a>
+    <a href="../../user_guide/examples/">Client Example</a>
 </li>
 
                         
@@ -108,13 +108,13 @@
                         
                             
 <li >
-    <a href="rcn/">Overview</a>
+    <a href="../../rcn/">Overview</a>
 </li>
 
                         
                             
 <li >
-    <a href="rcn/entities/">Entities</a>
+    <a href="../../rcn/entities/">Entities</a>
 </li>
 
                         
@@ -123,37 +123,37 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">IoC <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="python-di/">Quick Start</a>
+    <a href="../">Quick Start</a>
 </li>
 
                         
                             
 <li >
-    <a href="python-di/binders/">Binders</a>
+    <a href="../binders/">Binders</a>
 </li>
 
                         
                             
 <li >
-    <a href="python-di/events/">Events API</a>
+    <a href="../events/">Events API</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Features</a>
 </li>
 
                         
                             
 <li >
-    <a href="python-di/features/">Features</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="python-di/decorators/">Other Decorators</a>
+    <a href="../decorators/">Other Decorators</a>
 </li>
 
                         
@@ -169,13 +169,13 @@
                             <i class="fas fa-search"></i> Search
                         </a>
                     </li>
-                    <li class="disabled">
-                        <a rel="prev" >
+                    <li >
+                        <a rel="prev" href="../events/">
                             <i class="fas fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="next" href="user_guide/client/">
+                        <a rel="next" href="../decorators/">
                             Next <i class="fas fa-arrow-right"></i>
                         </a>
                     </li>
@@ -189,77 +189,55 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#welcome-to-scaleworks">Welcome to Scaleworks</a></li>
-            <li class="second-level"><a href="#introduction">Introduction</a></li>
+        <li class="first-level active"><a href="#use-case">Use Case</a></li>
+        <li class="first-level "><a href="#decorators">Decorators</a></li>
+            <li class="second-level"><a href="#bean">@Bean</a></li>
                 
-            <li class="second-level"><a href="#getting-started">Getting Started</a></li>
+            <li class="second-level"><a href="#component">@Component</a></li>
                 
-                <li class="third-level"><a href="#server">Server</a></li>
-                <li class="third-level"><a href="#client-ior-python">Client (IOR-Python)</a></li>
-            <li class="second-level"><a href="#quick-demo">Quick Demo</a></li>
+            <li class="second-level"><a href="#autowired">Autowired</a></li>
+                
+            <li class="second-level"><a href="#how-to-initialize-ioc">How to Initialize IoC</a></li>
                 
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="welcome-to-scaleworks">Welcome to Scaleworks</h1>
-<h2 id="introduction">Introduction</h2>
-<p>Welcome, I am excited to present 
-Scaleworks ControlNet is a communication platform for devices like Raspberry Pi's that support python programming language. The purpose to build this platform is to connect various devices over a network(i.e private &amp; public network). Each has a unique use-case.</p>
-<p>Control Net Architecture is divided in 3 Projects</p>
-<ul>
-<li><a href="https://github.com/mayank31313/IOR-Project">IOR Control Net Tower</a></li>
-<li><a href="https://github.com/mayank31313/SocketServer">IOR Socket Server</a></li>
-<li><a href="https://github.com/mayank31313/IOR-VideoStreaming">IOR Video Streamer</a></li>
-</ul>
-<h2 id="getting-started">Getting Started</h2>
-<h3 id="server">Server</h3>
-<h4 id="setup-docker">Setup Docker</h4>
-<p>Docker is a open platform to run apps in a container and seperate those apps from the infrastructure. You can install docker as per your platform needs from <a href="https://docs.docker.com/engine/install/">here</a>, we will also need Docker Compose which can be installed from this <a href="https://docs.docker.com/compose/install/">page</a>.</p>
-<h4 id="download-docker-compose-file">Download Docker Compose File</h4>
-<pre><code>cd ~
-mkdir controlnet-docker
-cd controlnet-docker
-wget https://mayank31313.github.io/docker/full/docker-compose.yml
+<h1 id="use-case">Use Case</h1>
+<p>In simple words IoC is giving your program a part a flow of control using a framework, for python it's here
+these helps to configure the application in multiple ways below are few examples of this</p>
+<h1 id="decorators">Decorators</h1>
+<p>Decorators are the way to invoke IoC with your application in python, 
+common decorators we can use are <em>@Bean</em>, <em>@Component</em> and <em>@Autowired</em> these decorators can be used to configure and control most of the part of your code.</p>
+<h4 id="bean">@Bean</h4>
+<p>@Bean is used in a method adding Bean decorator on a method automatically creates a lifecycle and automatic initialization of the bean in the App Context
+Below example demonstrate a Bean method that returns a Class Object of type TestBean Class.</p>
+<pre><code>@Bean()  # Bean Decorator
+def getTestBean() -&gt; TestBean:  # Return Type is required to be specified
+    return TestBean("Test 123") # Bean Object
 </code></pre>
-<p>The above command will download docker-compose file in the current directory</p>
-<h4 id="run-servers-in-docker">Run servers in Docker</h4>
-<p>To run containers just run the below command in the docker-compose file directory, it will pull necessary images and start docker containers.</p>
-<pre><code>docker-compose up
+<h4 id="component">@Component</h4>
+<p>@Component is used to automatically initialize a class object into App Context, this decorator is only used on Class types.
+Below example shows a normal class as a component class in python</p>
+<pre><code>@Component  # Component Decorator
+class TestComponentAnnotation:
+    def __init__(self):
+        print("Initialized")
 </code></pre>
-<p>To stop the containers, run below command</p>
-<pre><code>docker-compose down
+<h4 id="autowired">Autowired</h4>
+<p>@Autowired is used to inject loaded beans and components into user defined object this requires a setter method to inject to object</p>
+<pre><code>@Autowired()  # Autowired Decorator
+def setConfig(bean: TestBean, component: TestComponentAnnotation): # Parameter Type is required 
+    global testBean, testComponent
+    testBean = bean
+    testComponent = component
 </code></pre>
-<h3 id="client-ior-python">Client (IOR-Python)</h3>
-<p>The client code is available on this <a href="https://github.com/mayank31313/ior-python">github repository</a></p>
-<h4 id="setup-client">Setup Client</h4>
-<p>For this example no external configuration is needed, all the settings are predefined. The below example will only give a use case on the controlnet platform.</p>
-<pre><code>git clone https://github.com/mayank31313/ior-python
-cd ior-python/examples
-python3 LatencyCheck.py ../config/from.json ../config/to.json
-</code></pre>
-<h4 id="usage">Usage</h4>
-<pre><code>config = {
-    "server": "localhost",
-    "httpPort": 5001,
-    "socketServer": "localhost",
-    "tcpPort": 8000,
-    #"useSSL": True    # Optional
-}
-</code></pre>
-<h4 id="create-instance-of-iot-client">Create Instance of IOT Client</h4>
-<pre><code>from ior_research.IOTClient import IOTClientWrapper
-iot = IOTClientWrpper(token=token, config = config) #Creating object for IOT Client
-</code></pre>
-<h4 id="setting-up-receive-function-to-do-some-operation-when-a-response-is-received">Setting up Receive Function to do some Operation when a response is received.</h4>
-<pre><code>iot.set_on_receive(lambda x: print(x))
-</code></pre>
-<h4 id="last-but-not-the-least-start-the-iotclient">Last but not the least start the IOTClient</h4>
-<pre><code>iot.start()
-iot.join()
-</code></pre>
-<h2 id="quick-demo">Quick Demo</h2>
-<p><a href="https://youtu.be/RZJzZkTJpJQ"><img src="https://img.youtube.com/vi/RZJzZkTJpJQ/maxresdefault.jpg" width="50%"></a></p></div>
+<h2 id="how-to-initialize-ioc">How to Initialize IoC</h2>
+<p>AppInitializer class is responsible to handle bindings and for Dependency Injection it controls the bean initialization and
+bean context until all the beans/components are injected. Below two lines are the easiest lines to invoke dependency inject in your application</p>
+<pre><code>app = AppInitializer()  # Create AppInitializer object
+app.run()               # Invoke Dependency Injection and Binding Configs
+</code></pre></div>
         
         
     </div>
@@ -279,7 +257,7 @@ iot.join()
       </footer>
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
 
     
     <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
@@ -287,10 +265,10 @@ iot.join()
     <script>hljs.initHighlightingOnLoad();</script>
     
 
-    <script>var base_url = "."</script>
+    <script>var base_url = "../.."</script>
     
-    <script src="js/base.js"></script>
-    <script src="search/main.js"></script>
+    <script src="../../js/base.js"></script>
+    <script src="../../search/main.js"></script>
 
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -361,8 +339,3 @@ iot.join()
     </body>
 
 </html>
-
-<!--
-MkDocs version : 1.2.3
-Build Date UTC : 2023-05-14 19:41:40.573176+00:00
--->
