@@ -209,6 +209,7 @@ Just simple like an if-else condition if callback condition is satisfied else th
 <h4 id="example">Example</h4>
 <p>Below snippet is an example of a Condition Rendered Component, <strong>TestConditionalAnnotation</strong> will only initialise if <strong>TEST</strong> key is available in environment variables (i.e. os.environ),
 Similarly <strong>TestNotConditionRendering</strong> will be loaded when <strong>TEST</strong> is not available in environment variables.</p>
+<p><a href="https://github.com/RControlNet/python-dependency-injection/blob/main/examples/rendering/Conditional.py">Code</a></p>
 <pre><code>@Component
 @ConditionalRendering(callback=lambda x: "TEST" in os.environ)
 class TestConditionalAnnotation:
@@ -236,6 +237,7 @@ otherwise a <em>default</em> profile will be used</p>
 <h4 id="example_1">Example</h4>
 <p>Below snippet is an example of how to use Profile decorator, <strong>LoadDefaultProfile</strong> Class is a default profile class which will be loaded when
 <em>RCN_ENVS_CONFIG.active.profile</em> is not set or value is <em>default</em>. Similarly, <strong>LoadDevProfile</strong> Class is has a profiler to initialize only when profile is set to <strong>dev</strong>.</p>
+<p><a href="https://github.com/RControlNet/python-dependency-injection/blob/main/examples/rendering/Profiler.py">Code</a></p>
 <pre><code>@Component
 @Profile() # when RCN_ENVS_CONFIG.active.profile=default or not set
 class LoadDefaultProfile:
