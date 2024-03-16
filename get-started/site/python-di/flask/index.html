@@ -8,10 +8,10 @@
     
     
     
-    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
 
     
-    <title>Quick Start - ScaleWorks</title>
+    <title>Flask App - ScaleWorks</title>
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -19,9 +19,9 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
     <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
-    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-    <link href="../css/base.min.css" rel="stylesheet">
-    <link href="../css/cinder.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../css/base.min.css" rel="stylesheet">
+    <link href="../../css/cinder.min.css" rel="stylesheet">
 
     
         
@@ -59,7 +59,7 @@
             <!-- Main title -->
 
             
-              <a class="navbar-brand" href="..">ScaleWorks</a>
+              <a class="navbar-brand" href="../..">ScaleWorks</a>
             
         </div>
 
@@ -70,7 +70,7 @@
                 
                 
                     <li >
-                        <a href="..">Home</a>
+                        <a href="../..">Home</a>
                     </li>
                 
                 
@@ -81,19 +81,19 @@
                         
                             
 <li >
-    <a href="../user_guide/client/">Client</a>
+    <a href="../../user_guide/client/">Client</a>
 </li>
 
                         
                             
 <li >
-    <a href="../user_guide/server/">Server</a>
+    <a href="../../user_guide/server/">Server</a>
 </li>
 
                         
                             
 <li >
-    <a href="../user_guide/examples/">Client Example</a>
+    <a href="../../user_guide/examples/">Client Example</a>
 </li>
 
                         
@@ -108,13 +108,13 @@
                         
                             
 <li >
-    <a href="../rcn/">Overview</a>
+    <a href="../../rcn/">Overview</a>
 </li>
 
                         
                             
 <li >
-    <a href="../rcn/entities/">Entities</a>
+    <a href="../../rcn/entities/">Entities</a>
 </li>
 
                         
@@ -128,38 +128,38 @@
                         <ul class="dropdown-menu">
                         
                             
+<li >
+    <a href="../">Quick Start</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../binders/">Binders</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../events/">Events API</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../features/">Features</a>
+</li>
+
+                        
+                            
 <li class="active">
-    <a href="./">Quick Start</a>
+    <a href="./">Flask App</a>
 </li>
 
                         
                             
 <li >
-    <a href="binders/">Binders</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="events/">Events API</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="features/">Features</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="flask/">Flask App</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="decorators/">Other Decorators</a>
+    <a href="../decorators/">Other Decorators</a>
 </li>
 
                         
@@ -176,12 +176,12 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../rcn/entities/">
+                        <a rel="prev" href="../features/">
                             <i class="fas fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="next" href="binders/">
+                        <a rel="next" href="../decorators/">
                             Next <i class="fas fa-arrow-right"></i>
                         </a>
                     </li>
@@ -195,106 +195,73 @@
         
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="first-level active"><a href="#python-dependency-injection">Python Dependency Injection</a></li>
-            <li class="second-level"><a href="#introduction">Introduction</a></li>
+        <li class="first-level active"><a href="#flask-application-with-cndi-package">Flask Application with cndi Package</a></li>
+            <li class="second-level"><a href="#step-1-import-necessary-modules-and-functions">Step 1: Import Necessary Modules and Functions</a></li>
                 
-            <li class="second-level"><a href="#show-me-the-code">Show me the code</a></li>
+            <li class="second-level"><a href="#step-2-define-the-endpoint-function">Step 2: Define the Endpoint Function</a></li>
                 
-            <li class="second-level"><a href="#advance-lookup-at-cndi">Advance: Lookup at CNDI</a></li>
+            <li class="second-level"><a href="#step-3-set-environment-variables">Step 3: Set Environment Variables</a></li>
                 
-                <li class="third-level"><a href="#external-yaml-configurations">External yaml configurations</a></li>
-            <li class="second-level"><a href="#flask-application">Flask Application</a></li>
+            <li class="second-level"><a href="#step-4-initialize-and-run-the-application">Step 4: Initialize and Run the Application</a></li>
                 
-            <li class="second-level"><a href="#implementation-of-cndi">Implementation of CNDI</a></li>
+            <li class="second-level"><a href="#future-updates">Future Updates</a></li>
                 
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="python-dependency-injection">Python Dependency Injection</h1>
-<p><a href="https://github.com/mayank31313/python-dependency-injection">Official Repo</a></p>
-<h3 id="introduction">Introduction</h3>
-<p>As the name suggest, this application is for injecting dependencies into other objects. It's much 
-similar to Java Spring Framework. </p>
-<h3 id="show-me-the-code">Show me the code</h3>
-<p>Create a test bean class for custom dependency injection</p>
-<pre><code># Create a class for bean
-class TestBean:
-    def __init__(self, name):
-        self.name = name
+<h1 id="flask-application-with-cndi-package">Flask Application with cndi Package</h1>
+<p>This document provides a step-by-step walkthrough of a Python script that sets up a Flask application using the <code>cndi&gt;=2.4.0</code>. The <code>cndi</code> package is used for dependency injection and environment configuration, making it easier to manage complex Flask applications.</p>
+<p>The script is divided into four main steps:</p>
+<ol>
+<li>Importing necessary modules and functions</li>
+<li>Defining the endpoint function</li>
+<li>Setting environment variables</li>
+<li>Initializing and running the application</li>
+</ol>
+<p>Each step is explained in detail in the following sections.</p>
+<h2 id="step-1-import-necessary-modules-and-functions">Step 1: Import Necessary Modules and Functions</h2>
+<p>This step imports necessary modules and functions. 
+jsonify and request are imported from Flask. 
+Autowired, addToOsEnviron, FlaskApplication, and AppInitializer are imported from the cndi package.</p>
+<pre><code>from flask import jsonify, request
+from cndi.annotations import Autowired
+from cndi.env import addToOsEnviron
+from cndi.flask.flask_app import FlaskApplication
+from cndi.initializers import AppInitializer
 </code></pre>
-<p>Define a bean method to return a Bean Object using @Bean.</p>
-<p><strong><em>NOTE:</em></strong> : The bean method parameters and return type should have the class name of the dependent and return type object, 
-to let it know which class object should be injected and returned. </p>
-<pre><code># Create a bean object for Autowiring   
-@Bean()
-def getTestBean() -&gt; TestBean:
-    return TestBean("Test 123")
+<h2 id="step-2-define-the-endpoint-function">Step 2: Define the Endpoint Function</h2>
+<pre><code>@Autowired()
+def addEndpoints(flaskApp: FlaskApplication):
+    @flaskApp.app.route("/", methods=["POST"])
+    def serve():
+        return jsonify(request.json)
 </code></pre>
-<p>Test your dependency injection, using @Autowired.</p>
-<p><strong><em>NOTE:</em></strong> : The autowired method parameters should have the class name of the Dependent Object, 
-to let it know which class object should be injected. </p>
-<pre><code>testBean = None
-
-# Autowire the dependency
-@Autowired()
-def setTestBean(bean: TestBean):
-    global testBean
-    print(bean)
-    testBean = bean
-
-if __name__ == "__main__":
-    app = AppInitilizer()  # Create a instance for AppInitializer
-    app.componentScan("test_module") # Add package to scan for any component or bean
-
-    app.run() # Call run methods to inject beans
-    print(testBean.name)
-    print(type(testBean))
+<p>This step defines the addEndpoints function to add an endpoint to a Flask application.
+The @Autowired() decorator is used to automatically inject a FlaskApplication instance into the function. 
+The <code>@flaskApp.app.route("/", methods=["POST"])</code> decorator is defining a route that listens for POST requests at the root URL ("/"). The serve function returns the JSON content of the request.</p>
+<h2 id="step-3-set-environment-variables">Step 3: Set Environment Variables</h2>
+<pre><code>if __name__ == '__main__':
+    addToOsEnviron("app.flask.enabled", "true")                     # Enable Flask App
+    addToOsEnviron("rcn.management.server.enabled", "true")         # Enable Management and Health Endpoint
+    addToOsEnviron("management.context.thread.enable", "true")      # Enable Context Thread
 </code></pre>
-<h3 id="advance-lookup-at-cndi">Advance: Lookup at CNDI</h3>
-<h4 id="external-yaml-configurations">External yaml configurations</h4>
-<p>Using cndi users can configure the application on different environemnt setting, 
-using the <strong>rcn.profile</strong> attribute in the yaml file. Checkout the below yaml configuration</p>
-<pre><code>rcn.profile: local
-mqtt:
-    broker: localhost
-    port: 1883
-
----
-rcn.profile: dev
-mqtt:
-    broker: dev_mqtt_adderss.com
-    port: 11883
+<p>This step sets several environment variables using the <code>addToOsEnviron</code> function. 
+These environment variables are used to enable the Flask app, the management and health endpoint, and the context thread.</p>
+<h2 id="step-4-initialize-and-run-the-application">Step 4: Initialize and Run the Application</h2>
+<pre><code>    app = AppInitializer()
+    app.componentScan("cndi.flask")
+    app.run()
 </code></pre>
-<p>The above yaml has the configurations for two environment <strong>local</strong> and <strong>dev</strong>,
-with different configuration for mqtt brokers. Below is the code for how to use it.</p>
-<pre><code>from cndi.env import loadEnvFromFile, getContextEnvironment
-
-# First step: set the profile, this can be set directly to environment RCN_ENVS_CONFIG.active.profile or using os package
-
-RCN_ENVS_CONFIG = 'RCN_ENVS_CONFIG'
-os.environ[f"{RCN_ENVS_CONFIG}.active.profile"] = "local" # Set profile to use
-
-# Load yaml file
-loadEnvFromFile("path/to/yaml")
-
-server = getContextEnvironment("mqtt.broker") # Get Property Value
-port = int(getContextEnvironment("mqtt.port")) # Get Property Value
-</code></pre>
-<h3 id="flask-application">Flask Application</h3>
-<p>Let's create a flask app to get the working on CNDI in depth (well below video doesn't go that far but gives some understanding).
-In this example we will create a Flask app which will listen at /events.</p>
-<p>Find the <a href="https://github.com/mayank31313/PythonDITest">repository</a> here.</p>
-<p><strong><em>NOTE:</em></strong> : The above app requires a mqtt broker running in background. Otherwise it will throw exception while calling connect method.</p>
-<p>Route: /event will send a timestamp to mqtt topic defined in the </p>
-<pre><code># Directory Structure
-src/
-  + ./beans/*/*.py          -&gt;  Define beans in this modules and sub modules. 
-  + ./app.py                -&gt;  Main application.
-  + ./configurations/*.yml  -&gt;  YAML files to define external configurations.
-</code></pre>
-<h3 id="implementation-of-cndi">Implementation of CNDI</h3>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/T2LVfQRifQ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<p>This step initializes the application using the AppInitializer class. 
+It scans the "cndi.flask" package for components to register with the application using the <code>componentScan</code> method. 
+Finally, it starts the application using the run method.</p>
+<h2 id="future-updates">Future Updates</h2>
+<p>This document covers the basic setup of a Flask application using the <code>cndi</code> package. However, 
+Flask development with <code>cndi</code> is a broad topic with many more advanced features and techniques to explore.</p>
+<p>In the upcoming updates to this documentation, we plan to delve deeper into these advanced topics, 
+providing more comprehensive guides and examples to help you fully leverage the power of <code>cndi</code> in your Flask development process.</p>
+<p>Stay tuned for more in-depth content on Flask development with <code>cndi</code>.</p></div>
         
         
     </div>
@@ -314,7 +281,7 @@ src/
       </footer>
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="../js/bootstrap-3.0.3.min.js"></script>
+    <script src="../../js/bootstrap-3.0.3.min.js"></script>
 
     
     <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
@@ -322,10 +289,10 @@ src/
     <script>hljs.initHighlightingOnLoad();</script>
     
 
-    <script>var base_url = ".."</script>
+    <script>var base_url = "../.."</script>
     
-    <script src="../js/base.js"></script>
-    <script src="../search/main.js"></script>
+    <script src="../../js/base.js"></script>
+    <script src="../../search/main.js"></script>
 
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
