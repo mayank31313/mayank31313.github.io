@@ -1,16 +1,32 @@
 {
+  "variables": [
+    "3834238f-3613-41e2-9684-4c232bb82713",
+    "d24e2a68-462f-42d3-901d-fea4298a68e9",
+    "5f6f8307-f0a2-4cc3-9925-2c10da1a541f",
+    "5e9fa902-5082-414e-b84f-48a188570081",
+    "66e2ba50-4af4-4e92-a079-3d4a2d633f64",
+    "d4c182ec-e1ac-4735-a96e-3234592672d1",
+    "1552f5d8-2872-45ba-9320-6f8cf8fde508",
+    "06bd01a3-e372-4bc7-9b44-d09d3707139f",
+    "cd5e28f8-aaae-4f62-a9fe-740d3c61b54e",
+    "09a7cc8f-7bb1-4894-989f-78a174f8ff2b",
+    "67aa2ba1-1d66-49af-a6ef-f18441647ca0",
+    "e11ed3b0-9567-49c1-a048-ab85aa559b34",
+    "dac11738-887d-4e4b-8b44-718e15edf038",
+    "3f795e5c-566c-4d33-8726-7053b7c4bafd",
+    "e9cf876a-0173-4c8e-aca6-efc7faaf505c",
+    "f5dcbfe1-3358-4ed8-8208-feb530b559f8"
+  ],
   "workflows": {
     "name": "New Workflow",
     "user_id": "a68ec1af-0f36-4a91-8834-5221de602220",
     "id": "b4f74e18-93b8-4e4a-8b88-0ba1b7d098a6"
   },
-  "nodes": [
-    {
-      "id": "06bd01a3-e372-4bc7-9b44-d09d3707139f",
+  "nodes": {
+    "06bd01a3-e372-4bc7-9b44-d09d3707139f": {
+      "id": "{{ variables['06bd01a3-e372-4bc7-9b44-d09d3707139f'] }}",
       "position_y": 220.85562077307372,
       "type": "start",
-      "label": "Start",
-      "position_x": 309.7485349358336,
       "handles": [
         {
           "label": "source",
@@ -18,14 +34,15 @@
           "type": "source"
         }
       ],
-      "workflow_id": "b4f74e18-93b8-4e4a-8b88-0ba1b7d098a6"
+      "label": "Start",
+      "position_x": 309.7485349358336,
+      "workflow_id": "{{ variables['b4f74e18-93b8-4e4a-8b88-0ba1b7d098a6'] }}",
+      "node_parameters": []
     },
-    {
-      "id": "3834238f-3613-41e2-9684-4c232bb82713",
+    "3834238f-3613-41e2-9684-4c232bb82713": {
+      "id": "{{ variables['3834238f-3613-41e2-9684-4c232bb82713'] }}",
       "position_y": 434.82765073080907,
       "type": "ollama_chat",
-      "label": "Ollama Chat Model",
-      "position_x": 883.5281235944769,
       "handles": [
         {
           "label": "output",
@@ -33,14 +50,49 @@
           "type": "source"
         }
       ],
-      "workflow_id": "b4f74e18-93b8-4e4a-8b88-0ba1b7d098a6"
+      "label": "Ollama Chat Model",
+      "position_x": 883.5281235944769,
+      "workflow_id": "{{ variables['b4f74e18-93b8-4e4a-8b88-0ba1b7d098a6'] }}",
+      "node_parameters": [
+        {
+          "type": "text",
+          "id": "{{ variables['dac11738-887d-4e4b-8b44-718e15edf038'] }}",
+          "name": "base_url",
+          "options": null,
+          "priority": 100,
+          "label": "Base URL",
+          "value": "http://10.100.15.5:11434",
+          "node_id": "{{ variables['3834238f-3613-41e2-9684-4c232bb82713'] }}"
+        },
+        {
+          "type": "text",
+          "id": "{{ variables['f5dcbfe1-3358-4ed8-8208-feb530b559f8'] }}",
+          "name": "model_name",
+          "options": null,
+          "priority": 100,
+          "label": "Model Name",
+          "value": "llama3.1:8b-instruct-q2_K",
+          "node_id": "{{ variables['3834238f-3613-41e2-9684-4c232bb82713'] }}"
+        },
+        {
+          "type": "group_credentials",
+          "id": "{{ variables['3f795e5c-566c-4d33-8726-7053b7c4bafd'] }}",
+          "name": "ollama_credential",
+          "options": [
+            "Select Credentials",
+            "credentials:88eb4d03-2ba5-41c0-ad3e-843b6e1b4580"
+          ],
+          "priority": 100,
+          "label": "Ollama Credential",
+          "value": "Select",
+          "node_id": "{{ variables['3834238f-3613-41e2-9684-4c232bb82713'] }}"
+        }
+      ]
     },
-    {
-      "id": "5e9fa902-5082-414e-b84f-48a188570081",
+    "5e9fa902-5082-414e-b84f-48a188570081": {
+      "id": "{{ variables['5e9fa902-5082-414e-b84f-48a188570081'] }}",
       "position_y": 224.78582832551996,
       "type": "ai_agent",
-      "label": "AI Agent",
-      "position_x": 898.3850756086133,
       "handles": [
         {
           "label": "input",
@@ -73,14 +125,15 @@
           "type": "right"
         }
       ],
-      "workflow_id": "b4f74e18-93b8-4e4a-8b88-0ba1b7d098a6"
+      "label": "AI Agent",
+      "position_x": 898.3850756086133,
+      "workflow_id": "{{ variables['b4f74e18-93b8-4e4a-8b88-0ba1b7d098a6'] }}",
+      "node_parameters": []
     },
-    {
-      "id": "67aa2ba1-1d66-49af-a6ef-f18441647ca0",
+    "67aa2ba1-1d66-49af-a6ef-f18441647ca0": {
+      "id": "{{ variables['67aa2ba1-1d66-49af-a6ef-f18441647ca0'] }}",
       "position_y": 437,
       "type": "prompt_node",
-      "label": "Prompt Node",
-      "position_x": 583.3999938964843,
       "handles": [
         {
           "label": "prompt",
@@ -88,14 +141,26 @@
           "type": "source"
         }
       ],
-      "workflow_id": "b4f74e18-93b8-4e4a-8b88-0ba1b7d098a6"
+      "label": "Prompt Node",
+      "position_x": 583.3999938964843,
+      "workflow_id": "{{ variables['b4f74e18-93b8-4e4a-8b88-0ba1b7d098a6'] }}",
+      "node_parameters": [
+        {
+          "type": "textarea",
+          "id": "{{ variables['d4c182ec-e1ac-4735-a96e-3234592672d1'] }}",
+          "name": "prompt",
+          "options": null,
+          "priority": 100,
+          "label": "Prompt",
+          "value": "You are an helpfull assistant",
+          "node_id": "{{ variables['67aa2ba1-1d66-49af-a6ef-f18441647ca0'] }}"
+        }
+      ]
     },
-    {
-      "id": "e11ed3b0-9567-49c1-a048-ab85aa559b34",
+    "e11ed3b0-9567-49c1-a048-ab85aa559b34": {
+      "id": "{{ variables['e11ed3b0-9567-49c1-a048-ab85aa559b34'] }}",
       "position_y": 234.67288223161432,
       "type": "github_review",
-      "label": "Github Review",
-      "position_x": 1194.5225286540276,
       "handles": [
         {
           "label": "target",
@@ -103,14 +168,69 @@
           "type": "target"
         }
       ],
-      "workflow_id": "b4f74e18-93b8-4e4a-8b88-0ba1b7d098a6"
+      "label": "Github Review",
+      "position_x": 1194.5225286540276,
+      "workflow_id": "{{ variables['b4f74e18-93b8-4e4a-8b88-0ba1b7d098a6'] }}",
+      "node_parameters": [
+        {
+          "type": "text",
+          "id": "{{ variables['d24e2a68-462f-42d3-901d-fea4298a68e9'] }}",
+          "name": "github_repo",
+          "options": null,
+          "priority": 100,
+          "label": "Repository Full Name",
+          "value": "test",
+          "node_id": "{{ variables['e11ed3b0-9567-49c1-a048-ab85aa559b34'] }}"
+        },
+        {
+          "type": "text",
+          "id": "{{ variables['5f6f8307-f0a2-4cc3-9925-2c10da1a541f'] }}",
+          "name": "review_title",
+          "options": null,
+          "priority": 100,
+          "label": "Review Title",
+          "value": "",
+          "node_id": "{{ variables['e11ed3b0-9567-49c1-a048-ab85aa559b34'] }}"
+        },
+        {
+          "type": "text",
+          "id": "{{ variables['1552f5d8-2872-45ba-9320-6f8cf8fde508'] }}",
+          "name": "review_message",
+          "options": null,
+          "priority": 100,
+          "label": "Review Message",
+          "value": "{{ states['AI Agent']['agent_output'] }}",
+          "node_id": "{{ variables['e11ed3b0-9567-49c1-a048-ab85aa559b34'] }}"
+        },
+        {
+          "type": "number",
+          "id": "{{ variables['e9cf876a-0173-4c8e-aca6-efc7faaf505c'] }}",
+          "name": "pull_number",
+          "options": null,
+          "priority": 100,
+          "label": "Pull Number",
+          "value": "",
+          "node_id": "{{ variables['e11ed3b0-9567-49c1-a048-ab85aa559b34'] }}"
+        },
+        {
+          "type": "group_credentials",
+          "id": "{{ variables['09a7cc8f-7bb1-4894-989f-78a174f8ff2b'] }}",
+          "name": "github_credential_token",
+          "options": [
+            "Select Credentials",
+            "credentials:80558bce-8705-49f0-bde6-bac5b696c2dc"
+          ],
+          "priority": 100,
+          "label": "Github Token",
+          "value": "credentials:80558bce-8705-49f0-bde6-bac5b696c2dc",
+          "node_id": "{{ variables['e11ed3b0-9567-49c1-a048-ab85aa559b34'] }}"
+        }
+      ]
     },
-    {
-      "id": "66e2ba50-4af4-4e92-a079-3d4a2d633f64",
+    "66e2ba50-4af4-4e92-a079-3d4a2d633f64": {
+      "id": "{{ variables['66e2ba50-4af4-4e92-a079-3d4a2d633f64'] }}",
       "position_y": 192.6059707351275,
       "type": "text_node",
-      "label": "Text Node",
-      "position_x": 606.89877946267,
       "handles": [
         {
           "label": "source",
@@ -123,157 +243,63 @@
           "type": "target"
         }
       ],
-      "workflow_id": "b4f74e18-93b8-4e4a-8b88-0ba1b7d098a6"
+      "label": "Text Node",
+      "position_x": 606.89877946267,
+      "workflow_id": "{{ variables['b4f74e18-93b8-4e4a-8b88-0ba1b7d098a6'] }}",
+      "node_parameters": [
+        {
+          "type": "textarea",
+          "id": "{{ variables['cd5e28f8-aaae-4f62-a9fe-740d3c61b54e'] }}",
+          "name": "data",
+          "options": null,
+          "priority": 100,
+          "label": "Text Data",
+          "value": "Hello",
+          "node_id": "{{ variables['66e2ba50-4af4-4e92-a079-3d4a2d633f64'] }}"
+        }
+      ]
     }
-  ],
-  "edges": [
-    {
-      "targetHandle": "5e9fa902-5082-414e-b84f-48a188570081-chat model-bottom",
-      "id": "reactflow__edge-3834238f-3613-41e2-9684-4c232bb827133834238f-3613-41e2-9684-4c232bb82713-output-top-5e9fa902-5082-414e-b84f-48a1885700815e9fa902-5082-414e-b84f-48a188570081-chat model-bottom",
-      "source": "3834238f-3613-41e2-9684-4c232bb82713",
+  },
+  "edges": {
+    "reactflow__edge-3834238f-3613-41e2-9684-4c232bb827133834238f-3613-41e2-9684-4c232bb82713-output-top-5e9fa902-5082-414e-b84f-48a1885700815e9fa902-5082-414e-b84f-48a188570081-chat model-bottom": {
+      "targetHandle": "{{ variables['5e9fa902-5082-414e-b84f-48a188570081'] }}-chat model-bottom",
+      "id": "reactflow__edge-{{ variables['3834238f-3613-41e2-9684-4c232bb82713'] }}{{ variables['3834238f-3613-41e2-9684-4c232bb82713'] }}-output-top-{{ variables['5e9fa902-5082-414e-b84f-48a188570081'] }}{{ variables['5e9fa902-5082-414e-b84f-48a188570081'] }}-chat model-bottom",
+      "source": "{{ variables['3834238f-3613-41e2-9684-4c232bb82713'] }}",
       "workflow_id": "b4f74e18-93b8-4e4a-8b88-0ba1b7d098a6",
-      "target": "5e9fa902-5082-414e-b84f-48a188570081",
-      "sourceHandle": "3834238f-3613-41e2-9684-4c232bb82713-output-top"
+      "target": "{{ variables['5e9fa902-5082-414e-b84f-48a188570081'] }}",
+      "sourceHandle": "{{ variables['3834238f-3613-41e2-9684-4c232bb82713'] }}-output-top"
     },
-    {
-      "targetHandle": "5e9fa902-5082-414e-b84f-48a188570081-prompt-left",
-      "id": "reactflow__edge-67aa2ba1-1d66-49af-a6ef-f18441647ca067aa2ba1-1d66-49af-a6ef-f18441647ca0-prompt-top-5e9fa902-5082-414e-b84f-48a1885700815e9fa902-5082-414e-b84f-48a188570081-prompt-left",
-      "source": "67aa2ba1-1d66-49af-a6ef-f18441647ca0",
+    "reactflow__edge-67aa2ba1-1d66-49af-a6ef-f18441647ca067aa2ba1-1d66-49af-a6ef-f18441647ca0-prompt-top-5e9fa902-5082-414e-b84f-48a1885700815e9fa902-5082-414e-b84f-48a188570081-prompt-left": {
+      "targetHandle": "{{ variables['5e9fa902-5082-414e-b84f-48a188570081'] }}-prompt-left",
+      "id": "reactflow__edge-{{ variables['67aa2ba1-1d66-49af-a6ef-f18441647ca0'] }}{{ variables['67aa2ba1-1d66-49af-a6ef-f18441647ca0'] }}-prompt-top-{{ variables['5e9fa902-5082-414e-b84f-48a188570081'] }}{{ variables['5e9fa902-5082-414e-b84f-48a188570081'] }}-prompt-left",
+      "source": "{{ variables['67aa2ba1-1d66-49af-a6ef-f18441647ca0'] }}",
       "workflow_id": "b4f74e18-93b8-4e4a-8b88-0ba1b7d098a6",
-      "target": "5e9fa902-5082-414e-b84f-48a188570081",
-      "sourceHandle": "67aa2ba1-1d66-49af-a6ef-f18441647ca0-prompt-top"
+      "target": "{{ variables['5e9fa902-5082-414e-b84f-48a188570081'] }}",
+      "sourceHandle": "{{ variables['67aa2ba1-1d66-49af-a6ef-f18441647ca0'] }}-prompt-top"
     },
-    {
-      "targetHandle": "e11ed3b0-9567-49c1-a048-ab85aa559b34-target-left",
-      "id": "reactflow__edge-5e9fa902-5082-414e-b84f-48a1885700815e9fa902-5082-414e-b84f-48a188570081-output-right-e11ed3b0-9567-49c1-a048-ab85aa559b34e11ed3b0-9567-49c1-a048-ab85aa559b34-target-left",
-      "source": "5e9fa902-5082-414e-b84f-48a188570081",
+    "reactflow__edge-5e9fa902-5082-414e-b84f-48a1885700815e9fa902-5082-414e-b84f-48a188570081-output-right-e11ed3b0-9567-49c1-a048-ab85aa559b34e11ed3b0-9567-49c1-a048-ab85aa559b34-target-left": {
+      "targetHandle": "{{ variables['e11ed3b0-9567-49c1-a048-ab85aa559b34'] }}-target-left",
+      "id": "reactflow__edge-{{ variables['5e9fa902-5082-414e-b84f-48a188570081'] }}{{ variables['5e9fa902-5082-414e-b84f-48a188570081'] }}-output-right-{{ variables['e11ed3b0-9567-49c1-a048-ab85aa559b34'] }}{{ variables['e11ed3b0-9567-49c1-a048-ab85aa559b34'] }}-target-left",
+      "source": "{{ variables['5e9fa902-5082-414e-b84f-48a188570081'] }}",
       "workflow_id": "b4f74e18-93b8-4e4a-8b88-0ba1b7d098a6",
-      "target": "e11ed3b0-9567-49c1-a048-ab85aa559b34",
-      "sourceHandle": "5e9fa902-5082-414e-b84f-48a188570081-output-right"
+      "target": "{{ variables['e11ed3b0-9567-49c1-a048-ab85aa559b34'] }}",
+      "sourceHandle": "{{ variables['5e9fa902-5082-414e-b84f-48a188570081'] }}-output-right"
     },
-    {
-      "targetHandle": "66e2ba50-4af4-4e92-a079-3d4a2d633f64-target-left",
-      "id": "reactflow__edge-06bd01a3-e372-4bc7-9b44-d09d3707139f06bd01a3-e372-4bc7-9b44-d09d3707139f-source-right-66e2ba50-4af4-4e92-a079-3d4a2d633f6466e2ba50-4af4-4e92-a079-3d4a2d633f64-target-left",
-      "source": "06bd01a3-e372-4bc7-9b44-d09d3707139f",
+    "reactflow__edge-06bd01a3-e372-4bc7-9b44-d09d3707139f06bd01a3-e372-4bc7-9b44-d09d3707139f-source-right-66e2ba50-4af4-4e92-a079-3d4a2d633f6466e2ba50-4af4-4e92-a079-3d4a2d633f64-target-left": {
+      "targetHandle": "{{ variables['66e2ba50-4af4-4e92-a079-3d4a2d633f64'] }}-target-left",
+      "id": "reactflow__edge-{{ variables['06bd01a3-e372-4bc7-9b44-d09d3707139f'] }}{{ variables['06bd01a3-e372-4bc7-9b44-d09d3707139f'] }}-source-right-{{ variables['66e2ba50-4af4-4e92-a079-3d4a2d633f64'] }}{{ variables['66e2ba50-4af4-4e92-a079-3d4a2d633f64'] }}-target-left",
+      "source": "{{ variables['06bd01a3-e372-4bc7-9b44-d09d3707139f'] }}",
       "workflow_id": "b4f74e18-93b8-4e4a-8b88-0ba1b7d098a6",
-      "target": "66e2ba50-4af4-4e92-a079-3d4a2d633f64",
-      "sourceHandle": "06bd01a3-e372-4bc7-9b44-d09d3707139f-source-right"
+      "target": "{{ variables['66e2ba50-4af4-4e92-a079-3d4a2d633f64'] }}",
+      "sourceHandle": "{{ variables['06bd01a3-e372-4bc7-9b44-d09d3707139f'] }}-source-right"
     },
-    {
-      "targetHandle": "5e9fa902-5082-414e-b84f-48a188570081-input-left",
-      "id": "reactflow__edge-66e2ba50-4af4-4e92-a079-3d4a2d633f6466e2ba50-4af4-4e92-a079-3d4a2d633f64-source-right-5e9fa902-5082-414e-b84f-48a1885700815e9fa902-5082-414e-b84f-48a188570081-input-left",
-      "source": "66e2ba50-4af4-4e92-a079-3d4a2d633f64",
+    "reactflow__edge-66e2ba50-4af4-4e92-a079-3d4a2d633f6466e2ba50-4af4-4e92-a079-3d4a2d633f64-source-right-5e9fa902-5082-414e-b84f-48a1885700815e9fa902-5082-414e-b84f-48a188570081-input-left": {
+      "targetHandle": "{{ variables['5e9fa902-5082-414e-b84f-48a188570081'] }}-input-left",
+      "id": "reactflow__edge-{{ variables['66e2ba50-4af4-4e92-a079-3d4a2d633f64'] }}{{ variables['66e2ba50-4af4-4e92-a079-3d4a2d633f64'] }}-source-right-{{ variables['5e9fa902-5082-414e-b84f-48a188570081'] }}{{ variables['5e9fa902-5082-414e-b84f-48a188570081'] }}-input-left",
+      "source": "{{ variables['66e2ba50-4af4-4e92-a079-3d4a2d633f64'] }}",
       "workflow_id": "b4f74e18-93b8-4e4a-8b88-0ba1b7d098a6",
-      "target": "5e9fa902-5082-414e-b84f-48a188570081",
-      "sourceHandle": "66e2ba50-4af4-4e92-a079-3d4a2d633f64-source-right"
+      "target": "{{ variables['5e9fa902-5082-414e-b84f-48a188570081'] }}",
+      "sourceHandle": "{{ variables['66e2ba50-4af4-4e92-a079-3d4a2d633f64'] }}-source-right"
     }
-  ],
-  "node_parameters": [
-    {
-      "type": "text",
-      "id": "dac11738-887d-4e4b-8b44-718e15edf038",
-      "name": "base_url",
-      "options": null,
-      "priority": 100,
-      "label": "Base URL",
-      "value": "http://10.100.15.5:11434",
-      "node_id": "3834238f-3613-41e2-9684-4c232bb82713"
-    },
-    {
-      "type": "text",
-      "id": "f5dcbfe1-3358-4ed8-8208-feb530b559f8",
-      "name": "model_name",
-      "options": null,
-      "priority": 100,
-      "label": "Model Name",
-      "value": "llama3.1:8b-instruct-q2_K",
-      "node_id": "3834238f-3613-41e2-9684-4c232bb82713"
-    },
-    {
-      "type": "group_credentials",
-      "id": "3f795e5c-566c-4d33-8726-7053b7c4bafd",
-      "name": "ollama_credential",
-      "options": [
-        "Select Credentials",
-        "credentials:88eb4d03-2ba5-41c0-ad3e-843b6e1b4580"
-      ],
-      "priority": 100,
-      "label": "Ollama Credential",
-      "value": "Select",
-      "node_id": "3834238f-3613-41e2-9684-4c232bb82713"
-    },
-    {
-      "type": "textarea",
-      "id": "d4c182ec-e1ac-4735-a96e-3234592672d1",
-      "name": "prompt",
-      "options": null,
-      "priority": 100,
-      "label": "Prompt",
-      "value": "You are an helpfull assistant",
-      "node_id": "67aa2ba1-1d66-49af-a6ef-f18441647ca0"
-    },
-    {
-      "type": "text",
-      "id": "d24e2a68-462f-42d3-901d-fea4298a68e9",
-      "name": "github_repo",
-      "options": null,
-      "priority": 100,
-      "label": "Repository Full Name",
-      "value": "test",
-      "node_id": "e11ed3b0-9567-49c1-a048-ab85aa559b34"
-    },
-    {
-      "type": "text",
-      "id": "5f6f8307-f0a2-4cc3-9925-2c10da1a541f",
-      "name": "review_title",
-      "options": null,
-      "priority": 100,
-      "label": "Review Title",
-      "value": "",
-      "node_id": "e11ed3b0-9567-49c1-a048-ab85aa559b34"
-    },
-    {
-      "type": "text",
-      "id": "1552f5d8-2872-45ba-9320-6f8cf8fde508",
-      "name": "review_message",
-      "options": null,
-      "priority": 100,
-      "label": "Review Message",
-      "value": "{{ states['AI Agent']['agent_output'] }}",
-      "node_id": "e11ed3b0-9567-49c1-a048-ab85aa559b34"
-    },
-    {
-      "type": "number",
-      "id": "e9cf876a-0173-4c8e-aca6-efc7faaf505c",
-      "name": "pull_number",
-      "options": null,
-      "priority": 100,
-      "label": "Pull Number",
-      "value": "",
-      "node_id": "e11ed3b0-9567-49c1-a048-ab85aa559b34"
-    },
-    {
-      "type": "group_credentials",
-      "id": "09a7cc8f-7bb1-4894-989f-78a174f8ff2b",
-      "name": "github_credential_token",
-      "options": [
-        "Select Credentials",
-        "credentials:80558bce-8705-49f0-bde6-bac5b696c2dc"
-      ],
-      "priority": 100,
-      "label": "Github Token",
-      "value": "credentials:80558bce-8705-49f0-bde6-bac5b696c2dc",
-      "node_id": "e11ed3b0-9567-49c1-a048-ab85aa559b34"
-    },
-    {
-      "type": "textarea",
-      "id": "cd5e28f8-aaae-4f62-a9fe-740d3c61b54e",
-      "name": "data",
-      "options": null,
-      "priority": 100,
-      "label": "Text Data",
-      "value": "Hello",
-      "node_id": "66e2ba50-4af4-4e92-a079-3d4a2d633f64"
-    }
-  ]
+  }
 }
